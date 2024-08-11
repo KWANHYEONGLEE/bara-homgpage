@@ -6,7 +6,9 @@ const IndexPage = () => (
     <img src="/partner-info.png" alt="partne-info" style={{ width: '100%' }} />
     <img src="/partner-join.png" alt="partne-join" style={{ width: '100%' }} />
     <ButtonContainer>
-      <Button>문의하기</Button>
+      <Anchor href="https://forms.gle/YiPhZcBDR3oW5odAA" target="_blank">
+        문의하기
+      </Anchor>
     </ButtonContainer>
   </Layout>
 )
@@ -18,7 +20,7 @@ const ButtonContainer = styled.div`
   justify-content: center;
 `
 
-const Button = styled.button`
+const Anchor = styled.a`
   background-color: black;
   border: none;
   color: #f99b20;

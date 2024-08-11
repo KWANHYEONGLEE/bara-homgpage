@@ -6,7 +6,9 @@ const IndexPage = () => (
     <img src="/bara-info.png" alt="bara-info" style={{ width: '100%' }} />
     <img src="/simba-join.png" alt="bara-join" style={{ width: '100%' }} />
     <ButtonContainer>
-      <Button>심바 팀 합류하기</Button>
+      <Anchor href="https://forms.gle/geDjxtViR5dgBMEE8" target="_blank">
+        심바 팀 합류하기
+      </Anchor>
     </ButtonContainer>
 
     {/* <Hero /> */}
@@ -24,7 +26,7 @@ const ButtonContainer = styled.div`
   justify-content: center;
 `
 
-const Button = styled.button`
+const Anchor = styled.a`
   background-color: black;
   border: none;
   color: #f99b20;
