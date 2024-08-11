@@ -1,18 +1,16 @@
-import Layout from "components/common/Layout";
-import CustomerReviews from "components/page/home/CustomerReviews";
-import Hero from "components/common/Hero";
-import Program from "components/page/home/Program";
-import Solutions from "components/page/home/Solutions";
-import InfoSection from "components/page/home/infoSection";
+import Layout from 'components/common/Layout'
 
 const IndexPage = () => (
   <Layout title="심바" description="심바를 만나면 육아에도 정답이 있다!">
-    <Hero />
-    <InfoSection />
-    <Program />
-    <CustomerReviews />
-    <Solutions />
-  </Layout>
-);
+    <img src="/bara-info.png" alt="bara-info" style={{ width: '100%' }} />
+    <img src="/simba-join.png" alt="bara-info" style={{ width: '100%' }} />
 
-export default IndexPage;
+    {/* <Hero /> */}
+    {/* <InfoSection /> */}
+    {/* <Program /> */}
+    {/* <CustomerReviews /> */}
+    {/* <Solutions /> */}
+  </Layout>
+)
+
+export default IndexPage

@@ -1,24 +1,24 @@
-import Link from "next/link";
-import styled from "styled-components";
-import { device } from "styled/Breakpoint";
+import Link from 'next/link'
+import styled from 'styled-components'
+import { device } from 'styled/Breakpoint'
 
 const Header = () => {
   return (
     <HeaderSection>
       <HeaderChild>
         <Link href="/">
-          <Logo src="/logo-orange.svg" />
+          <Logo src="/logo.png" />
         </Link>
         <HeaderNav>
-          <NavItem href="/">서비스소개</NavItem>
-          <NavItem href="/partner">파트너 모집</NavItem>
+          <NavItem href="/">사업소개</NavItem>
+          <NavItem href="/partner">파트너십</NavItem>
         </HeaderNav>
       </HeaderChild>
     </HeaderSection>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
 
 const HeaderSection = styled.header`
   display: flex;
@@ -35,13 +35,13 @@ const HeaderSection = styled.header`
   @media ${device.md} {
     padding: 0 26px;
   }
-`;
+`
 const HeaderChild = styled.header`
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: center;
-`;
+`
 
 const EmptyFrag = styled.div`
   max-width: 191px;
@@ -49,14 +49,14 @@ const EmptyFrag = styled.div`
   @media ${device.md} {
     display: none;
   }
-`;
+`
 
 const Logo = styled.img`
   /* width: 99px; */
   width: 136px;
   height: auto;
   object-fit: contain;
-`;
+`
 
 const HeaderNav = styled.div`
   display: flex;
@@ -69,13 +69,13 @@ const HeaderNav = styled.div`
       display: none;
     }
   }
-`;
+`
 
 const NavItem = styled(Link)`
   color: #191919;
   font-size: 16px;
   font-weight: 500;
-`;
+`
 
 // const NavButton = styled.button`
 //   border: none;
