@@ -1,15 +1,18 @@
 import Layout from 'components/common/Layout'
 import { styled } from 'styled-components'
+import Image from 'next/image'
 
 const IndexPage = () => (
   <Layout title="심바" description="심바를 만나면 육아에도 정답이 있다!">
-    <img src="/bara-info.png" alt="bara-info" style={{ width: '100%' }} />
-    <img src="/simba-join.png" alt="bara-join" style={{ width: '100%' }} />
-    <ButtonContainer>
-      <Anchor href="https://forms.gle/geDjxtViR5dgBMEE8" target="_blank">
-        심바 팀 합류하기
-      </Anchor>
-    </ButtonContainer>
+    <ImageContainer>
+      <img src="/bara-info.png" alt="bara-info" style={{ width: '100%' }} />
+      <img src="/simba-join.png" alt="bara-join" style={{ width: '100%' }} />
+      <ButtonContainer>
+        <Anchor href="https://forms.gle/geDjxtViR5dgBMEE8" target="_blank">
+          심바 팀 합류하기
+        </Anchor>
+      </ButtonContainer>
+    </ImageContainer>
 
     {/* <Hero /> */}
     {/* <InfoSection /> */}
@@ -20,6 +23,10 @@ const IndexPage = () => (
 )
 
 export default IndexPage
+
+const CustomImage = styled(Image)`
+  width: 100%;
+`
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -38,4 +45,18 @@ const Anchor = styled.a`
   cursor: pointer;
   font-weight: bold;
   border-radius: 10px;
+`
+
+const ImageContainer = styled.header`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1296px;
+  min-width: 360px;
+  /* height: 72px; */
+  width: 100%;
+  /* padding: 0 26px; */
+  padding: 0 60px;
+  margin: 0 auto;
 `
