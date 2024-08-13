@@ -68,6 +68,7 @@ const HeaderNav = styled.div`
   /* width: 191px; */
   @media ${device.md} {
     justify-content: end;
+    gap: 30px;
     a:first-child {
       display: none;
     }
@@ -78,6 +79,8 @@ const NavItem = styled(Link)`
   color: #191919;
   font-size: 16px;
   font-weight: 500;
+  /* no wrap */
+  white-space: nowrap;
 `
 
 // const NavButton = styled.button`
