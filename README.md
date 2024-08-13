@@ -66,6 +66,7 @@ component/ --components/home/Title.tsx --components/home/Message.tsx --component
   ```
 
 - using `baseUrl` importing module( no need to dot drilling)
+
   ```tsx
   //good
   import { Container } from 'styles/layout'
@@ -179,5 +180,3 @@ const Container = styled.div`
   color: ${(props) => props.theme.colors.primary};
 `
 ```
-
-배포 테스트
