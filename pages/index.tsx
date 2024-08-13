@@ -41,7 +41,7 @@ const Anchor = styled.a`
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 24px;
+  font-size: 22px;
   cursor: pointer;
   font-weight: bold;
   border-radius: 10px;
