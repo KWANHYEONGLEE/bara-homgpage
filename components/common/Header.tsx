@@ -11,6 +11,9 @@ const Header = () => {
         </Link>
         <HeaderNav>
           <NavItem href="/">사업소개</NavItem>
+          <NavItem href="https://www.simba.kr" target="_blank">
+            서비스 바로가기
+          </NavItem>
           <NavItem href="/partner">파트너십</NavItem>
         </HeaderNav>
       </HeaderChild>
