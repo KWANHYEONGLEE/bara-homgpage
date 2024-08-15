@@ -45,7 +45,7 @@ const ImageContainer = styled.header`
   min-width: 360px;
   /* height: 72px; */
   width: 100%;
-  /* padding: 0 26px; */
-  padding: 0 60px;
+  padding: 0 26px;
+  /* padding: 0 60px; */
   margin: 0 auto;
 `
