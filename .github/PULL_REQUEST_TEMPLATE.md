@@ -1,12 +1,9 @@
-### What does this PR do?
-1. ..
-2. ..
-3. ..
+# 🌟 작업 개요
 
+# 🔍 작업 상세 내용
 
-### list up the UI check list for the client-side
-1. ..
-2. ..
-3. ..
+# 🤔 생각해볼 문제
 
-### Screenshots(if needed)
+# 🪢 머지 가능 여부
+
+- [ ] 가능
