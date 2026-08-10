@@ -38,6 +38,7 @@
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-brand-ink: var(--brand-ink);
+  --color-surface: var(--surface);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -88,6 +89,14 @@
   /* 히어로 그라데이션 구성색 — 브랜드 오렌지에서 파생한 난색 계열 */
   --glow-amber: #ffc46b;
   --glow-coral: #ff8a5b;
+
+  /*
+   * 섹션 구분용 배경.
+   * 구분선 대신 이 색을 번갈아 깔아 섹션을 나눈다.
+   * 히어로 그라데이션이 난색이라 회색(--secondary)이 아니라
+   * 같은 계열의 아주 옅은 크림으로 두어 위아래가 따로 놀지 않게 한다.
+   */
+  --surface: #fdfaf6;
 }
 
 @layer base {

@@ -50,7 +50,7 @@ const solutions: Solution[] = [
 
 export function Solutions() {
   return (
-    <Section>
+    <Section bordered={false}>
       <SectionHeading
         label="Solution"
         lead="아이의 모든 일상 속으로, 부모의 가장 가까운 손끝으로"

@@ -3,11 +3,17 @@ import { cn } from "@/lib/utils";
 type SectionProps = React.ComponentProps<"section"> & {
   /** 섹션 사이 구분선 */
   bordered?: boolean;
+  /**
+   * 배경 톤. 구분선 대신 이 톤을 번갈아 써서 섹션을 나눈다.
+   * 선 하나를 긋는 것보다 덩어리가 나뉘어 보인다.
+   */
+  tone?: "default" | "muted";
 };
 
 export function Section({
   className,
   bordered = true,
+  tone = "default",
   children,
   ...props
 }: SectionProps) {
@@ -16,6 +22,7 @@ export function Section({
       className={cn(
         "px-5 py-20 sm:py-24 lg:px-8 lg:py-32",
         bordered && "border-b border-border",
+        tone === "muted" && "bg-surface",
         className,
       )}
       {...props}

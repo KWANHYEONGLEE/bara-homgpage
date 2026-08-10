@@ -16,8 +16,8 @@ const lines = [
     href: "#simbakids",
   },
   {
-    name: "AI 부모코칭",
-    summary: "우리 아이에게 맞는 맞춤 코칭",
+    name: "아이젤리",
+    summary: "우리 아이에게 맞는 AI 맞춤 코칭",
     href: "#ai-coach",
   },
   {

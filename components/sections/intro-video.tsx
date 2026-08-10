@@ -31,6 +31,8 @@ export function IntroVideo() {
       ref={ref}
       className="aspect-video w-full"
       muted
+      // 끝나도 멈추지 않고 이어서 재생한다
+      loop
       playsInline
       controls
       preload="metadata"
