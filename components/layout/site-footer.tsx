@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { companyInfo } from "@/lib/site";
+import { SiteLogo } from "@/components/layout/site-logo";
 
 const footerLinks = [
   { label: "사업소개", href: "/business" },
@@ -12,13 +12,7 @@ export function SiteFooter() {
     <footer className="border-t border-border">
       <div className="mx-auto flex max-w-6xl flex-col items-center px-5 py-16 lg:px-8 lg:py-24">
         <Link href="/" aria-label="바라스페이스 홈">
-          <Image
-            src="/logo.png"
-            alt="바라스페이스"
-            width={150}
-            height={50}
-            className="h-8 w-auto"
-          />
+          <SiteLogo className="h-7" />
         </Link>
 
         <nav className="mt-10 flex items-center gap-6 text-sm" aria-label="푸터 메뉴">

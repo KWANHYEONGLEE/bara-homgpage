@@ -1,12 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navItems } from "@/lib/site";
+import { SiteLogo } from "@/components/layout/site-logo";
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -32,22 +32,15 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        // 로고 파일에 투명 배경이 없어 헤더는 항상 불투명해야 한다.
-        // 최상단에서는 경계선만 지워 히어로 그라데이션과 부드럽게 만난다.
-        "sticky top-0 z-50 w-full border-b bg-background/85 backdrop-blur-sm transition-colors duration-200",
-        solid ? "border-border/70" : "border-transparent",
+        "sticky top-0 z-50 w-full border-b transition-colors duration-200",
+        solid
+          ? "border-border/70 bg-background/85 backdrop-blur-sm"
+          : "border-transparent bg-transparent",
       )}
     >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-18 lg:px-8">
         <Link href="/" className="shrink-0" aria-label="바라스페이스 홈">
-          <Image
-            src="/logo.png"
-            alt="바라스페이스"
-            width={120}
-            height={40}
-            priority
-            className="h-7 w-auto sm:h-8"
-          />
+          <SiteLogo priority className="h-6 sm:h-7" />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="주요 메뉴">
