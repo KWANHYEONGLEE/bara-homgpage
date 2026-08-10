@@ -119,6 +119,13 @@
     text-wrap: pretty;
   }
 
+  /* 사업소개 색인처럼 페이지 안에서 건너뛸 때만 부드럽게 */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
   /* 키보드 이동 경로가 항상 보이도록. 브랜드 원색은 대비가 낮아 brand-ink 사용 */
   :focus-visible {
     outline: 2px solid var(--brand-ink);

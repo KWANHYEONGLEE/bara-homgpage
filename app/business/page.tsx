@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { BusinessHero } from "@/components/sections/business-hero";
 import { Simbakids } from "@/components/sections/simbakids";
 import { AiCoach } from "@/components/sections/ai-coach";
 import { BaraImpact } from "@/components/sections/bara-impact";
@@ -12,12 +13,7 @@ export const metadata: Metadata = {
 export default function BusinessPage() {
   return (
     <>
-      {/*
-        시안에 페이지 제목 영역이 없어 화면에는 그대로 두고,
-        문서 구조상 필요한 h1 만 스크린리더용으로 둔다.
-        (각 사업 섹션이 h2, 그 안의 항목이 h3)
-      */}
-      <h1 className="sr-only">사업소개</h1>
+      <BusinessHero />
       <Simbakids />
       <AiCoach />
       <BaraImpact />

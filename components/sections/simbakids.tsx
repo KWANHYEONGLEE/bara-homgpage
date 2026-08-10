@@ -25,7 +25,8 @@ const features = [
 
 export function Simbakids() {
   return (
-    <Section>
+    // 색인에서 건너뛸 때 sticky 헤더에 제목이 가리지 않도록 여백을 준다
+    <Section id="simbakids" className="scroll-mt-20 sm:scroll-mt-24">
       <div className="text-center">
         <h2 className="t-label">심바키즈</h2>
         <p className="t-lead mx-auto mt-4 max-w-2xl">
@@ -37,7 +38,7 @@ export function Simbakids() {
         수업 영상. 7MB 라 preload 는 metadata 로 두어 진입 시 본문을
         가로막지 않게 하고, 재생은 사용자가 시작하도록 controls 만 둔다.
       */}
-      <div className="mt-12 overflow-hidden rounded-xl border border-border bg-secondary sm:mt-14">
+      <div className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-xl border border-border bg-secondary sm:mt-14">
         <video
           className="aspect-video w-full"
           controls
@@ -62,9 +63,7 @@ export function Simbakids() {
             />
             <div className="p-5">
               <h3 className="t-title">{feature.title}</h3>
-              <p className="t-body mt-2.5 text-[15px] leading-[1.75]">
-                {feature.body}
-              </p>
+              <p className="t-body mt-2.5">{feature.body}</p>
             </div>
           </li>
         ))}

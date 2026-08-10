@@ -23,7 +23,11 @@ const steps: Step[] = [
 
 export function BaraImpact() {
   return (
-    <Section bordered={false}>
+    <Section
+      id="bara-impact"
+      bordered={false}
+      className="scroll-mt-20 sm:scroll-mt-24"
+    >
       <div className="text-center">
         <h2 className="t-label">바라 임팩트</h2>
         <p className="t-lead mx-auto mt-4 max-w-2xl">

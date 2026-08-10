@@ -20,7 +20,7 @@ const steps: Step[] = [
 
 export function AiCoach() {
   return (
-    <Section>
+    <Section id="ai-coach" className="scroll-mt-20 sm:scroll-mt-24">
       <div className="text-center">
         <h2 className="t-label">AI 부모코칭</h2>
         <p className="t-lead mx-auto mt-4 max-w-2xl">
