@@ -40,6 +40,13 @@ yarn.lock
 #sitemap
 /public/*.xml
 /public/robots.txt
-package-lock.json
 
 
+
+# next-sitemap 생성물
+/robots.txt
+/sitemap.xml
+/sitemap-0.xml
+
+# TypeScript 증분 빌드 캐시
+*.tsbuildinfo

@@ -1,5 +1,5 @@
+/** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || "https://dummylink.vercel.app/",
-  generateRobotsTxt: true, // (optional)
-  // ...other options
+  siteUrl: process.env.SITE_URL || "https://www.baraspace.com",
+  generateRobotsTxt: true,
 };
