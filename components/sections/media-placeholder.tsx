@@ -1,54 +1,72 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-type MediaProps = {
-  /** 실제 이미지 경로. 없으면 자리표시자를 렌더한다. */
-  src?: string;
-  alt: string;
-  width?: number;
-  height?: number;
-  /** 자리표시자에 표시할 안내 문구 */
-  hint?: string;
-  className?: string;
+/** 원본 캔버스 크기와, 그 안에서 실제 그림이 차지하는 영역(px) */
+export type Crop = {
+  /** 캔버스 크기 */
+  canvasW: number;
+  canvasH: number;
+  /** 콘텐츠 바운딩 박스 */
+  x: number;
+  y: number;
+  w: number;
+  h: number;
 };
 
 /**
- * 솔루션 이미지 슬롯.
- * 에셋 자체에 여백이 포함돼 있어 별도 배경이나 비율 강제 없이
- * 원본 종횡비 그대로 렌더한다.
+ * 콘텐츠 영역이 컨테이너를 채우도록 여백을 잘라내는 좌표를 계산한다.
+ *
+ * 컨테이너 폭 W 는 콘텐츠 폭 w 에 대응하므로 배율 s = W/w 이고,
+ * 이미지는 canvasW * s 로 커진 뒤 (-x * s) 만큼 왼쪽으로 밀린다.
+ * 이를 컨테이너 대비 백분율로 환산한다.
+ *
+ * @param pad 콘텐츠 주변에 남길 여백 비율 (그림자 falloff 보호용)
  */
-export function Media({
-  src,
-  alt,
-  width,
-  height,
-  hint,
-  className,
-}: MediaProps) {
-  if (!src) {
-    return (
-      <div
-        className={cn(
-          "flex aspect-4/3 flex-col items-center justify-center gap-2 rounded-2xl border border-dashed border-border bg-secondary p-6 text-center",
-          className,
-        )}
-      >
-        <span className="text-sm font-medium text-muted-foreground">{alt}</span>
-        {hint && (
-          <span className="text-xs text-muted-foreground/70">{hint}</span>
-        )}
-      </div>
-    );
-  }
+function cropToContent(c: Crop, pad = 0.04) {
+  const padX = c.w * pad;
+  const padY = c.h * pad;
+  const w = c.w + padX * 2;
+  const h = c.h + padY * 2;
+  const x = c.x - padX;
+  const y = c.y - padY;
+
+  return {
+    wrapper: { aspectRatio: `${w} / ${h}` },
+    image: {
+      position: "absolute" as const,
+      width: `${(c.canvasW / w) * 100}%`,
+      height: `${(c.canvasH / h) * 100}%`,
+      left: `${(-x / w) * 100}%`,
+      top: `${(-y / h) * 100}%`,
+      maxWidth: "none",
+    },
+  };
+}
+
+type MediaProps = {
+  src: string;
+  alt: string;
+  /** 원본에 여백이 포함된 경우, 잘라낼 콘텐츠 영역 */
+  crop: Crop;
+  className?: string;
+};
+
+export function Media({ src, alt, crop, className }: MediaProps) {
+  const { wrapper, image } = cropToContent(crop);
 
   return (
-    <Image
-      src={src}
-      alt={alt}
-      width={width ?? 1121}
-      height={height ?? 937}
-      sizes="(min-width: 768px) 50vw, 100vw"
-      className={cn("h-auto w-full", className)}
-    />
+    <div
+      className={cn("relative w-full overflow-hidden", className)}
+      style={wrapper}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        width={crop.canvasW}
+        height={crop.canvasH}
+        sizes="(min-width: 768px) 50vw, 100vw"
+        style={image}
+      />
+    </div>
   );
 }

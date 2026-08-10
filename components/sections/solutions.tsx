@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Section, SectionHeading } from "@/components/layout/section";
-import { Media } from "@/components/sections/media-placeholder";
+import { Media, type Crop } from "@/components/sections/media-placeholder";
 import { Button } from "@/components/ui/button";
 
 type Solution = {
   title: string;
   body: string;
   cta?: { label: string; href: string; external?: boolean };
-  media: { src: string; alt: string; width: number; height: number };
+  media: { src: string; alt: string; crop: Crop };
 };
 
 const solutions: Solution[] = [
@@ -19,8 +19,7 @@ const solutions: Solution[] = [
     media: {
       src: "/images/solutions/solution_1.png",
       alt: "심바키즈 서비스 화면",
-      width: 1121,
-      height: 937,
+      crop: { canvasW: 1121, canvasH: 937, x: 264, y: 262, w: 592, h: 409 },
     },
   },
   {
@@ -29,8 +28,7 @@ const solutions: Solution[] = [
     media: {
       src: "/images/solutions/solution_2.png",
       alt: "AI 부모코칭 서비스 화면",
-      width: 1121,
-      height: 1080,
+      crop: { canvasW: 1121, canvasH: 1080, x: 264, y: 262, w: 592, h: 553 },
     },
   },
   {
@@ -40,8 +38,7 @@ const solutions: Solution[] = [
     media: {
       src: "/images/solutions/solution_3.png",
       alt: "바라 임팩트 솔루션 구조도",
-      width: 1074,
-      height: 1024,
+      crop: { canvasW: 1074, canvasH: 1024, x: 278, y: 269, w: 536, h: 480 },
     },
   },
 ];
@@ -67,8 +64,7 @@ export function Solutions() {
               <Media
                 src={item.media.src}
                 alt={item.media.alt}
-                width={item.media.width}
-                height={item.media.height}
+                crop={item.media.crop}
                 className={reversed ? "md:order-2" : undefined}
               />
 
