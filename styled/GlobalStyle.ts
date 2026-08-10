@@ -6,50 +6,66 @@ import { createGlobalStyle } from "styled-components";
 
 const Global = createGlobalStyle`
 
-/* @font-face {
+@font-face {
     font-family: "Pretendard";
     font-weight: 300;
-    src: url(/fonts/Pretendard-light.woff) ;
+    font-style: normal;
+    font-display: swap;
+    src: url(/fonts/Pretendard/Pretendard-Light.woff2) format("woff2");
   }
 @font-face {
     font-family: "Pretendard";
     font-weight: 400;
-    src: url(/fonts/Pretendard-Regular.woff) ;
+    font-style: normal;
+    font-display: swap;
+    src: url(/fonts/Pretendard/Pretendard-Regular.woff2) format("woff2");
   }
   @font-face {
     font-family: "Pretendard";
     font-weight: 500;
-    src: url(/fonts/Pretendard-Medium.woff) ;
+    font-style: normal;
+    font-display: swap;
+    src: url(/fonts/Pretendard/Pretendard-Medium.woff2) format("woff2");
   }
   @font-face {
     font-family: "Pretendard";
     font-weight: 600;
-    src: url(/fonts/Pretendard-SemiBold.woff) ;
+    font-style: normal;
+    font-display: swap;
+    src: url(/fonts/Pretendard/Pretendard-SemiBold.woff2) format("woff2");
   }
   @font-face {
     font-family: "Pretendard";
     font-weight: 700;
-    src: url(/fonts/Pretendard-Bold.woff) ;
-  } */
+    font-style: normal;
+    font-display: swap;
+    src: url(/fonts/Pretendard/Pretendard-Bold.woff2) format("woff2");
+  }
 
   @font-face {
     font-family: "GmarketSans";
     font-weight: 300;
-    src: url(/fonts/GmarketSans/GmarketSansLight.woff2) ;
+    font-style: normal;
+    font-display: swap;
+    src: url(/fonts/GmarketSans/GmarketSansLight.woff2) format("woff2");
   }
   @font-face {
     font-family: "GmarketSans";
     font-weight: 500;
-    src: url(/fonts/GmarketSans/GmarketSansMedium.woff2) ;
+    font-style: normal;
+    font-display: swap;
+    src: url(/fonts/GmarketSans/GmarketSansMedium.woff2) format("woff2");
   }
   @font-face {
     font-family: "GmarketSans";
     font-weight: 700;
-    src: url(/fonts/GmarketSans/GmarketSansBold.woff2) ;
+    font-style: normal;
+    font-display: swap;
+    src: url(/fonts/GmarketSans/GmarketSansBold.woff2) format("woff2");
   }
 
 body{
-    font-family: 'GmarketSans', sans-serif;
+    font-family: 'GmarketSans', 'Pretendard', sans-serif;
     -webkit-font-smoothing: antialiased;
     font-size: 18px;
     letter-spacing: 0.01em;
