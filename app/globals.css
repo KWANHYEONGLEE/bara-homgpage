@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+@theme {
+  /* 로고 스트립 무한 흐름 — 트랙에 목록을 2회 넣고 절반만큼 이동시킨다 */
+  --animate-marquee: marquee 32s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
 @theme inline {
   --font-sans: var(--font-pretendard), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-gmarket), var(--font-pretendard), sans-serif;

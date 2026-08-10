@@ -8,7 +8,7 @@ type Solution = {
   title: string;
   body: string;
   cta?: { label: string; href: string; external?: boolean };
-  media: { src?: string; alt: string; hint: string };
+  media: { src: string; alt: string; width: number; height: number };
 };
 
 const solutions: Solution[] = [
@@ -17,16 +17,20 @@ const solutions: Solution[] = [
     body: "느린 아이의 심리 케어부터 사회성 강화까지, 검증된 전문가를 집에서 가장 편안하게 만나보세요.",
     cta: { label: "심바키즈 바로가기", href: "https://simbakids.com", external: true },
     media: {
+      src: "/images/solutions/solution_1.png",
       alt: "심바키즈 서비스 화면",
-      hint: "Better Child. Brighter Tomorrow. 앱 화면 이미지",
+      width: 1121,
+      height: 937,
     },
   },
   {
     title: "아이의 오늘을 이해하고\n내일의 성장을 이끄는 AI",
     body: "검색해도 우리 아이 이야기는 없으니까, 우리 아이에게 꼭 맞는 코칭을 시작하세요.",
     media: {
+      src: "/images/solutions/solution_2.png",
       alt: "AI 부모코칭 서비스 화면",
-      hint: "Closer Every Day, Stronger Together. 앱 화면 이미지",
+      width: 1121,
+      height: 1080,
     },
   },
   {
@@ -34,8 +38,10 @@ const solutions: Solution[] = [
     body: "교육·돌봄 사각지대 아동·청소년을 위해 지역사회와 함께 교육 격차를 줄여갑니다.",
     cta: { label: "바라 임팩트 문의하기", href: "/contact" },
     media: {
+      src: "/images/solutions/solution_3.png",
       alt: "바라 임팩트 솔루션 구조도",
-      hint: "지역사회·학교·전문가 연결 다이어그램",
+      width: 1074,
+      height: 1024,
     },
   },
 ];
@@ -61,7 +67,8 @@ export function Solutions() {
               <Media
                 src={item.media.src}
                 alt={item.media.alt}
-                hint={item.media.hint}
+                width={item.media.width}
+                height={item.media.height}
                 className={reversed ? "md:order-2" : undefined}
               />
 

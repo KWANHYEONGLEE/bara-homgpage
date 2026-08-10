@@ -54,7 +54,7 @@ export function SiteFooter() {
         </address>
 
         <p className="mt-8 text-xs text-muted-foreground/70">
-          @Copyright KZONE Co. Ltd. All Rights Reserved.
+          © {new Date().getFullYear()} BARASPACE Co., Ltd. All Rights Reserved.
         </p>
       </div>
     </footer>
