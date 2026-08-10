@@ -41,7 +41,7 @@ export default function NewsroomPage() {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex flex-col gap-2 py-6 transition-colors hover:text-primary sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
+                  className="flex flex-col gap-2 py-6 transition-colors hover:text-brand-ink sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
                 >
                   <span className="text-base font-medium">{item.title}</span>
                   <span className="shrink-0 text-sm text-muted-foreground">

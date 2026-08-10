@@ -51,7 +51,8 @@ function LogoItem({
 export function Certifications() {
   return (
     <Section className="py-16 sm:py-20 lg:py-24">
-      <h2 className="sr-only">인증 및 지원기관</h2>
+      {/* 신뢰가 이 페이지의 일이므로 로고를 말없이 흘리지 않고 무엇인지 밝힌다 */}
+      <h2 className="t-label mb-10 text-center">인증 및 지원기관</h2>
 
       <div className="relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,#000_6%,#000_94%,transparent)] motion-reduce:[mask-image:none]">
         <ul

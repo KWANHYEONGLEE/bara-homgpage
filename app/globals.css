@@ -37,6 +37,7 @@
   --color-destructive-foreground: var(--destructive-foreground);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
+  --color-brand-ink: var(--brand-ink);
 
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -47,34 +48,42 @@
 :root {
   --radius: 0.75rem;
 
-  /* 시안 기준 팔레트 — 밝은 배경에 오렌지 강조 */
+  /*
+   * 대비는 모두 흰 배경(#fff) 기준 실측값.
+   * 브랜드 오렌지는 흰 배경에서 2.16:1 이라 "글씨로 쓸 수 없다".
+   * 그래서 면(버튼 바탕·그라데이션)은 --primary, 글씨는 --brand-ink 로
+   * 역할을 갈라 둔다.
+   */
   --background: #ffffff;
-  --foreground: #35363f;
+  --foreground: #23242b; /* 15.5:1 */
 
   --card: #ffffff;
-  --card-foreground: #35363f;
+  --card-foreground: #23242b;
   --popover: #ffffff;
-  --popover-foreground: #35363f;
+  --popover-foreground: #23242b;
 
-  /* 기존 --Primary 유지 */
+  /* 면 전용. 글씨색은 흰색(2.16:1)이 아니라 잉크(7.17:1)를 얹는다 */
   --primary: #f99b20;
-  --primary-foreground: #ffffff;
+  --primary-foreground: #23242b;
+
+  /* 흰 배경 위 브랜드 "글씨" 전용 */
+  --brand-ink: #a85f00; /* 4.9:1 */
 
   --secondary: #f6f6f7;
-  --secondary-foreground: #35363f;
+  --secondary-foreground: #23242b;
 
   --muted: #f6f6f7;
-  --muted-foreground: #767683;
+  --muted-foreground: #55565f; /* 7.3:1 — 종전 #767683 은 4.48:1 로 AA 미달 */
 
   --accent: #fff4e6;
-  --accent-foreground: #b96a00;
+  --accent-foreground: #a85f00;
 
-  --destructive: #dc2626;
+  --destructive: #c81e1e;
   --destructive-foreground: #ffffff;
 
   --border: #e7e7ea;
-  --input: #e0e0e4;
-  --ring: #f99b20;
+  --input: #d6d6dc;
+  --ring: #a85f00;
 
   /* 히어로 그라데이션 구성색 — 브랜드 오렌지에서 파생한 난색 계열 */
   --glow-amber: #ffc46b;
@@ -89,6 +98,12 @@
   body {
     @apply bg-background text-foreground font-sans antialiased;
     letter-spacing: -0.01em;
+    /*
+     * 한글은 기본값(break-all 성격)으로 두면 어절 한가운데서 줄이 바뀌어
+     * "기업 / 입니다." 처럼 읽힌다. keep-all 로 어절을 붙여 둔다.
+     */
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
 
   /* 시안의 한글 제목은 자간이 좁고 행간이 넉넉함 */
@@ -106,6 +121,77 @@
 }
 
 @layer components {
+  /**
+   * 타입 스케일.
+   * 배수 52/28/21/17/14 (+라벨 13) — 종전 40/24/20/18/15 는 중간 세 단계가
+   * 6px 안에 몰려 위계가 뭉갰다. clamp 로 모바일~데스크톱을 잇는다.
+   *
+   * GmarketSans(--font-display)는 t-display / t-thesis 두 곳에만 쓴다.
+   * 읽는 텍스트는 전부 Pretendard.
+   */
+  .t-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.75rem, 4.4vw, 3.25rem);
+    line-height: 1.22;
+    letter-spacing: -0.03em;
+  }
+
+  .t-thesis {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.375rem, 2.6vw, 2.125rem);
+    line-height: 1.45;
+    letter-spacing: -0.025em;
+  }
+
+  /* 섹션 라벨 — 제목이 아니라 분류표라서 작고 조용하게 */
+  .t-label {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.09em;
+    color: var(--brand-ink);
+  }
+
+  /* 섹션이 실제로 하는 말 — 시각적 제목 역할은 여기가 맡는다 */
+  .t-lead {
+    font-size: clamp(1.25rem, 2.1vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.025em;
+  }
+
+  .t-title {
+    font-size: clamp(1.125rem, 1.5vw, 1.3125rem);
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+
+  /* 본문 — 16px(모바일)~17px(데스크톱) / 행간 1.85 / 대비 7.3:1 */
+  .t-body {
+    font-size: clamp(1rem, 1.25vw, 1.0625rem);
+    font-weight: 400;
+    line-height: 1.85;
+    color: var(--muted-foreground);
+  }
+
+  .t-caption {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--muted-foreground);
+  }
+
+  /*
+   * 한글 본문 최적 줄길이(약 35자).
+   * ch 는 숫자 0 의 폭이라 한글 1자 ≈ 2ch 로, ch 로 잡으면 절반으로 좁아진다.
+   * 한글은 1자 ≈ 1em 이므로 em 으로 잡는다.
+   */
+  .measure {
+    max-width: 35em;
+  }
+
   /**
    * 히어로 배경.
    * 단일 linear-gradient 는 띠(banding)가 보이기 쉬워서, 위치가 다른

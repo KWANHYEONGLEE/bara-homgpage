@@ -33,7 +33,8 @@ export function ContactForm() {
       onSubmit={handleSubmit}
       className="rounded-2xl border border-border p-6 sm:p-10"
     >
-      <h2 className="text-xl font-bold sm:text-2xl">Contact us</h2>
+      <h2 className="t-label">Contact us</h2>
+      <p className="t-lead mt-3">궁금한 점을 남겨주세요.</p>
 
       <div className="mt-8 grid gap-4 sm:grid-cols-2">
         <div className="space-y-2">

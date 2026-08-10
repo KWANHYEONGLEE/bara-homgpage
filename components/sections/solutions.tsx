@@ -48,7 +48,7 @@ export function Solutions() {
     <Section>
       <SectionHeading
         label="Solution"
-        title="아이의 모든 일상 속으로, 부모의 가장 가까운 손끝으로"
+        lead="아이의 모든 일상 속으로, 부모의 가장 가까운 손끝으로"
       />
 
       <div className="mt-16 space-y-20 sm:mt-20 sm:space-y-28">
@@ -69,12 +69,8 @@ export function Solutions() {
               />
 
               <div className={reversed ? "md:order-1" : undefined}>
-                <h3 className="whitespace-pre-line text-lg font-bold leading-[1.55] sm:text-xl">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-[15px] leading-[1.8] text-muted-foreground">
-                  {item.body}
-                </p>
+                <h3 className="t-title whitespace-pre-line">{item.title}</h3>
+                <p className="t-body measure mt-4">{item.body}</p>
 
                 {item.cta && (
                   <Button asChild className="mt-7 rounded-full" size="lg">

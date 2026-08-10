@@ -50,9 +50,10 @@ export function SiteHeader() {
               href={item.href}
               aria-current={isActive(item.href) ? "page" : undefined}
               className={cn(
-                "text-[15px] transition-colors hover:text-primary",
+                // 브랜드 원색은 흰 배경에서 2.16:1 이라 글씨로 못 쓴다
+                "text-[15px] transition-colors hover:text-brand-ink",
                 isActive(item.href)
-                  ? "font-semibold text-primary"
+                  ? "font-semibold text-brand-ink"
                   : "font-medium text-foreground/80",
               )}
             >
@@ -87,7 +88,7 @@ export function SiteHeader() {
                   className={cn(
                     "block py-3 text-[15px] transition-colors",
                     isActive(item.href)
-                      ? "font-semibold text-primary"
+                      ? "font-semibold text-brand-ink"
                       : "font-medium text-foreground/80",
                   )}
                 >

@@ -14,7 +14,7 @@ export function Section({
   return (
     <section
       className={cn(
-        "px-5 py-20 sm:py-28 lg:px-8 lg:py-32",
+        "px-5 py-20 sm:py-24 lg:px-8 lg:py-32",
         bordered && "border-b border-border",
         className,
       )}
@@ -25,22 +25,33 @@ export function Section({
   );
 }
 
-/** 시안의 중앙 정렬 섹션 제목 (영문 라벨 + 국문 부제) */
+/**
+ * 섹션 머리.
+ * label 은 분류표(Who We Are, Solution)라 작은 브랜드 라벨로 두고,
+ * 섹션이 실제로 하는 말인 lead 가 시각적 제목 역할을 맡는다.
+ */
 export function SectionHeading({
   label,
-  title,
+  lead,
+  align = "center",
   className,
 }: {
   label: string;
-  title?: string;
+  lead?: string;
+  align?: "center" | "start";
   className?: string;
 }) {
   return (
-    <div className={cn("text-center", className)}>
-      <h2 className="text-xl font-bold sm:text-2xl">{label}</h2>
-      {title && (
-        <p className="mt-3 text-base font-bold text-foreground sm:text-lg">
-          {title}
+    <div className={cn(align === "center" && "text-center", className)}>
+      <h2 className="t-label">{label}</h2>
+      {lead && (
+        <p
+          className={cn(
+            "t-lead mt-4",
+            align === "center" && "mx-auto max-w-2xl",
+          )}
+        >
+          {lead}
         </p>
       )}
     </div>

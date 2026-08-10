@@ -21,7 +21,7 @@ export function SiteFooter() {
               {i > 0 && <span aria-hidden className="h-3 w-px bg-border" />}
               <Link
                 href={link.href}
-                className="text-foreground/80 transition-colors hover:text-primary"
+                className="text-foreground/80 transition-colors hover:text-brand-ink"
               >
                 {link.label}
               </Link>
@@ -29,7 +29,7 @@ export function SiteFooter() {
           ))}
         </nav>
 
-        <address className="mt-10 w-full border-t border-border pt-8 text-center text-[13px] font-light not-italic leading-6 text-muted-foreground">
+        <address className="mt-10 w-full border-t border-border pt-8 text-center text-sm not-italic leading-7 text-muted-foreground">
           <p>{companyInfo.legalName}</p>
           <p>
             대표: {companyInfo.ceo} · 사업자번호: {companyInfo.businessNumber}
@@ -40,7 +40,7 @@ export function SiteFooter() {
             메일:{" "}
             <a
               href={`mailto:${companyInfo.email}`}
-              className="transition-colors hover:text-primary"
+              className="transition-colors hover:text-brand-ink"
             >
               {companyInfo.email}
             </a>
