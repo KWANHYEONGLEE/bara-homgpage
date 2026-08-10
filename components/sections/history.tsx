@@ -8,13 +8,13 @@ const history: YearGroup[] = [
     entries: [
       { month: "07", text: "지역사회 및 기업 MOU 9건" },
       { month: "07", text: "지식재산센터 IP 나래 특허지원사업 선정" },
-      { month: "06", text: "그레이존 아동 대상 코칭 AI 개발 착수" },
       { month: "06", text: "경기창조경제혁신센터 ‘판교 창업존’ 입주" },
       {
         month: "05",
         text: "사회적기업진흥원 사회적기업 창업지원 ‘돌봄 사회서비스’ 선정",
       },
       { month: "04", text: "지역아동센터 사회정서 프로그램 협력체계 확대" },
+      { month: "01", text: "심바키즈 통합 개편" },
     ],
   },
   {
@@ -25,12 +25,13 @@ const history: YearGroup[] = [
       { month: "07", text: "신보 NEST 소셜 임팩트 선정" },
       { month: "04", text: "초등학교 Wee클래스 추천 학생 지원" },
       { month: "03", text: "향기로운유원 LOI 체결" },
+      { month: "02", text: "심바키즈 2차 개편" },
     ],
   },
   {
     year: "2024",
     entries: [
-      { month: "10", text: "심바키즈 1차 개편" },
+      { month: "09", text: "심바키즈 1차 개편" },
       { month: "08", text: "혁신성장유형 벤처기업 인증" },
       { month: "07", text: "서울국제유아교육전 참가" },
       { month: "05", text: "‘바라스페이스’ 상표 출원" },
@@ -80,11 +81,12 @@ export function History() {
             </h3>
 
             {/* 본문 단보다 길게 잡는다 — 항목이 한 줄로 끝나야 훑기 좋다 */}
-            <ul className="max-w-[42rem] space-y-3.5">
+            <ul className="max-w-[40rem] space-y-3.5">
               {group.entries.map((entry, i) => (
+                // 읽는 문단이 아니라 훑는 기록이라 본문 회색이 아닌 잉크로 둔다
                 <li
                   key={`${entry.month}-${i}`}
-                  className="flex gap-4 text-[15px] leading-[1.7] sm:text-base"
+                  className="t-body flex gap-4 text-foreground"
                 >
                   <span className="w-7 shrink-0 tabular-nums text-muted-foreground">
                     {entry.month}

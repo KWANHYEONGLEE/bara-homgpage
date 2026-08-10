@@ -89,7 +89,7 @@ export function Vision() {
 
             <span
               className={cn(
-                "absolute inset-x-0 bottom-3 text-center text-lg font-bold sm:bottom-4 sm:text-xl",
+                "t-title absolute inset-x-0 bottom-3 text-center sm:bottom-4",
                 photo.src ? "text-white" : "text-muted-foreground",
               )}
             >
