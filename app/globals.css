@@ -133,7 +133,7 @@
    * 배수 52/28/21/17/14 (+라벨 13) — 종전 40/24/20/18/15 는 중간 세 단계가
    * 6px 안에 몰려 위계가 뭉갰다. clamp 로 모바일~데스크톱을 잇는다.
    *
-   * GmarketSans(--font-display)는 t-display / t-thesis 두 곳에만 쓴다.
+   * GmarketSans(--font-display)는 히어로 디스플레이에만 쓴다.
    * 읽는 텍스트는 전부 Pretendard.
    */
   .t-display {
@@ -142,14 +142,6 @@
     font-size: clamp(1.75rem, 4.4vw, 3.25rem);
     line-height: 1.22;
     letter-spacing: -0.03em;
-  }
-
-  .t-thesis {
-    font-family: var(--font-display);
-    font-weight: 700;
-    font-size: clamp(1.375rem, 2.6vw, 2.125rem);
-    line-height: 1.45;
-    letter-spacing: -0.025em;
   }
 
   /* 섹션 라벨 — 제목이 아니라 분류표라서 작고 조용하게 */

@@ -2,17 +2,13 @@ import { Section } from "@/components/layout/section";
 
 /**
  * 문단 순서가 곧 창업 논리다.
- * 문제 -> 우리가 모인 이유 -> 방법 -> 지향.
- * 마지막 문장이 결론이라 본문 단을 빠져나와 따로 선다.
+ * 문제 -> 우리가 모인 이유 -> 방법.
  */
 const paragraphs = [
   "아이를 향한 무한한 사랑, 그리고 그만큼 깊어지는 부모들의 현실적인 고민.",
   "우리는 따뜻한 마음만으로는 풀기 어려웠던 문제를 기술과 데이터, 그리고 전문성으로 해결하기 위해 모였습니다.",
   "AI 기술로, 부모와 전문가, 지역사회를 연결합니다.",
 ];
-
-const closing =
-  "모두의 바람이 모여, 한 아이의 삶을 바꾸는 힘이 될 수 있도록\n바라스페이스가 새로운 길을 만들어갑니다.";
 
 export function FoundingStory() {
   return (
@@ -36,11 +32,6 @@ export function FoundingStory() {
           </div>
         </div>
       </div>
-
-      <p className="t-thesis mt-16 whitespace-pre-line border-t border-border pt-10 sm:mt-20 sm:pt-12">
-        <span aria-hidden className="mb-6 block h-0.5 w-10 bg-primary" />
-        {closing}
-      </p>
     </Section>
   );
 }
