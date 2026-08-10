@@ -11,7 +11,7 @@ export function Hero() {
         <h1 className="t-display [text-wrap:pretty]">
           Empowering Every Child, with AI
         </h1>
-        <p className="t-body-sm mx-auto mt-5 max-w-xl">
+        <p className="t-body-sm mx-auto mt-5 max-w-xl text-3xl font-bold">
           아이의 오늘을 이해하고, 내일의 성장을 돕는 기업
         </p>
       </div>

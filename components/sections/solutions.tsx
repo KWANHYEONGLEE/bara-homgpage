@@ -74,8 +74,10 @@ export function Solutions() {
               />
 
               <div className={reversed ? "md:order-1" : undefined}>
-                <h3 className="t-title whitespace-pre-line">{item.title}</h3>
-                <p className="t-body measure mt-4">{item.body}</p>
+                <h3 className="t-title  text-3xl">{item.title}</h3>
+                <p className="t-body measure mt-4 whitespace-pre-line text-xl">
+                  {item.body}
+                </p>
 
                 {item.cta && (
                   <Button asChild className="mt-7 rounded-full" size="lg">
