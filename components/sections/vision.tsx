@@ -4,14 +4,31 @@ import { cn } from "@/lib/utils";
 
 /**
  * 팀 사진 4컷.
- * src 를 채우면 이미지로, 비어 있으면 같은 비율의 자리표시자로 렌더한다.
- * 에셋은 public/images/about/ 에 배치.
+ * 원본 vision.png 는 4컷이 한 장에 붙어 있고 각 컷이 세로 0.30 비율로
+ * 지나치게 길어, 컷마다 인물 위치를 보고 1:2 로 잘라 낸 파일이다.
+ * src 가 비면 같은 비율의 자리표시자로 렌더한다.
  */
-const photos: { label: string; src?: string }[] = [
-  { label: "높게" },
-  { label: "함께" },
-  { label: "깊게" },
-  { label: "넓게" },
+const photos: { label: string; src?: string; alt: string }[] = [
+  {
+    label: "높게",
+    src: "/images/vision/vision_1.png",
+    alt: "창가 보드에 메모를 붙이며 아이디어를 정리하는 팀원",
+  },
+  {
+    label: "함께",
+    src: "/images/vision/vision_2.png",
+    alt: "화이트보드 앞 테이블에 모여 함께 화면을 보는 팀원들",
+  },
+  {
+    label: "깊게",
+    src: "/images/vision/vision_3.png",
+    alt: "사무실에서 코드를 작성하는 팀원",
+  },
+  {
+    label: "넓게",
+    src: "/images/vision/vision_4.png",
+    alt: "계단형 라운지에 둘러앉아 이야기를 나누는 팀원들",
+  },
 ];
 
 const values = [
@@ -46,13 +63,13 @@ export function Vision() {
         {photos.map((photo) => (
           <li
             key={photo.label}
-            className="relative aspect-3/4 overflow-hidden rounded-lg bg-secondary"
+            className="relative aspect-1/2 overflow-hidden rounded-lg bg-secondary"
           >
             {photo.src ? (
               <>
                 <Image
                   src={photo.src}
-                  alt=""
+                  alt={photo.alt}
                   fill
                   sizes="(min-width: 1024px) 25vw, 50vw"
                   className="object-cover"

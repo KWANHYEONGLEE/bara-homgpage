@@ -8,7 +8,7 @@ export function Hero() {
       <div className="mx-auto max-w-3xl text-center">
         <h1 className="t-display">Empowering Every Child, with AI</h1>
         <p className="mx-auto mt-5 max-w-xl text-[15px] leading-[1.75] text-muted-foreground sm:text-base">
-          아이의 오늘을 이해하고, 내일의 성장을 돕는 AI
+          아이의 오늘을 이해하고, 내일의 성장을 돕는 기업
         </p>
       </div>
     </section>

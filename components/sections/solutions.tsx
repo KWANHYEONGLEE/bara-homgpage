@@ -15,7 +15,11 @@ const solutions: Solution[] = [
   {
     title: "No.1 아동·청소년 심리 상담 플랫폼",
     body: "느린 아이의 심리 케어부터 사회성 강화까지, 검증된 전문가를 집에서 가장 편안하게 만나보세요.",
-    cta: { label: "심바키즈 바로가기", href: "https://simbakids.com", external: true },
+    cta: {
+      label: "심바키즈 바로가기",
+      href: "https://simbakids.com",
+      external: true,
+    },
     media: {
       src: "/images/solutions/solution_1.png",
       alt: "심바키즈 서비스 화면",
