@@ -1,5 +1,5 @@
 import { Section } from "@/components/layout/section";
-import { ImageSlot } from "@/components/sections/image-slot";
+import { Media } from "@/components/sections/media-placeholder";
 import { StepList, type Step } from "@/components/sections/step-list";
 
 /** 이해 -> 방법 -> 지속. 순서가 곧 코칭이 진행되는 흐름이다. */
@@ -28,9 +28,12 @@ export function AiCoach() {
         </p>
       </div>
 
-      <ImageSlot
-        label="AI 부모코칭 서비스 화면 (Closer Every Day, Stronger Together.)"
-        className="mx-auto mt-12 aspect-4/3 w-full max-w-3xl sm:mt-14"
+      {/* 원본에 여백이 포함돼 있어 홈과 같은 좌표로 잘라 낸다 */}
+      <Media
+        src="/images/solutions/solution_2.png"
+        alt="AI 부모코칭 서비스 화면"
+        crop={{ canvasW: 1121, canvasH: 1080, x: 264, y: 262, w: 592, h: 553 }}
+        className="mx-auto mt-12 max-w-3xl sm:mt-14"
       />
 
       <div className="mx-auto mt-14 max-w-2xl sm:mt-16">

@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Section, SectionHeading } from "@/components/layout/section";
 import { Media, type Crop } from "@/components/sections/media-placeholder";
 import { Button } from "@/components/ui/button";
+import { externalLinks } from "@/lib/site";
 
 type Solution = {
   title: string;
@@ -17,7 +18,7 @@ const solutions: Solution[] = [
     body: "느린 아이의 심리 케어부터 사회성 강화까지, 검증된 전문가를 집에서 가장 편안하게 만나보세요.",
     cta: {
       label: "심바키즈 바로가기",
-      href: "https://simbakids.com",
+      href: externalLinks.simbakids,
       external: true,
     },
     media: {

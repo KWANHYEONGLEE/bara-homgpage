@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Section } from "@/components/layout/section";
-import { ImageSlot } from "@/components/sections/image-slot";
+import { Media } from "@/components/sections/media-placeholder";
 import { StepList, type Step } from "@/components/sections/step-list";
 import { Button } from "@/components/ui/button";
 
@@ -31,9 +31,12 @@ export function BaraImpact() {
         </p>
       </div>
 
-      <ImageSlot
-        label="바라 임팩트 솔루션 구조도 (지역사회·학교·전문가 연결 다이어그램)"
-        className="mx-auto mt-12 aspect-square w-full max-w-2xl sm:mt-14"
+      {/* 원본에 여백이 포함돼 있어 홈과 같은 좌표로 잘라 낸다 */}
+      <Media
+        src="/images/solutions/solution_3.png"
+        alt="지역사회·학교·전문가를 연결하는 바라 임팩트 솔루션 구조도"
+        crop={{ canvasW: 1074, canvasH: 1024, x: 278, y: 269, w: 536, h: 480 }}
+        className="mx-auto mt-12 max-w-2xl sm:mt-14"
       />
 
       <div className="mx-auto mt-14 max-w-2xl sm:mt-16">

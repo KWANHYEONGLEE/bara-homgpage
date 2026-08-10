@@ -4,6 +4,11 @@ export const siteConfig = {
   email: "baraspace@baraspace.com",
 } as const;
 
+/** 외부 서비스 링크 — 홈과 사업소개 두 곳에서 쓰므로 여기서만 관리한다 */
+export const externalLinks = {
+  simbakids: "https://simba.kr/",
+} as const;
+
 export const navItems = [
   { label: "홈", href: "/" },
   { label: "회사소개", href: "/about" },

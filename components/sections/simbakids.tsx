@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Section } from "@/components/layout/section";
 import { ImageSlot } from "@/components/sections/image-slot";
 import { Button } from "@/components/ui/button";
+import { externalLinks } from "@/lib/site";
 
 const features = [
   {
@@ -72,7 +73,7 @@ export function Simbakids() {
       <div className="mt-12 text-center sm:mt-14">
         <Button asChild size="lg" className="rounded-full">
           <Link
-            href="https://simbakids.com"
+            href={externalLinks.simbakids}
             target="_blank"
             rel="noopener noreferrer"
           >
