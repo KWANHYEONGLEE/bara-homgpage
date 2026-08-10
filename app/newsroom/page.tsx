@@ -1,13 +1,8 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/layout/section";
-import { CategoryFilter } from "@/components/news/category-filter";
 import { NewsCard } from "@/components/news/news-card";
 import { Pagination } from "@/components/news/pagination";
-import {
-  POSTS_PER_PAGE,
-  newsPosts,
-  selectPosts,
-} from "@/lib/newsroom";
+import { POSTS_PER_PAGE, selectPosts } from "@/lib/newsroom";
 
 export const metadata: Metadata = {
   title: "뉴스룸",
@@ -17,11 +12,11 @@ export const metadata: Metadata = {
 export default async function NewsroomPage({
   searchParams,
 }: {
-  searchParams: Promise<{ category?: string; page?: string }>;
+  searchParams: Promise<{ page?: string }>;
 }) {
-  const { category, page: pageParam } = await searchParams;
+  const { page: pageParam } = await searchParams;
 
-  const posts = selectPosts(category);
+  const posts = selectPosts();
   const totalPages = Math.max(1, Math.ceil(posts.length / POSTS_PER_PAGE));
   // 범위를 벗어난 page 로 들어와도 빈 화면이 되지 않게 잘라 둔다
   const page = Math.min(Math.max(1, Number(pageParam) || 1), totalPages);
@@ -42,26 +37,18 @@ export default async function NewsroomPage({
       </section>
 
       <Section bordered={false}>
-        <CategoryFilter active={category} />
-
         {visible.length === 0 ? (
           <p className="t-body py-20 text-center">
-            {newsPosts.length === 0
-              ? "준비 중입니다. 곧 새로운 소식을 전해드리겠습니다."
-              : "이 분류에는 아직 소식이 없습니다."}
+            준비 중입니다. 곧 새로운 소식을 전해드리겠습니다.
           </p>
         ) : (
           <>
-            <ul className="mt-10 divide-y divide-border border-b border-border">
+            <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {visible.map((post) => (
-                <NewsCard key={post.slug} post={post} />
+                <NewsCard key={post.id} post={post} />
               ))}
             </ul>
-            <Pagination
-              page={page}
-              totalPages={totalPages}
-              category={category}
-            />
+            <Pagination page={page} totalPages={totalPages} />
           </>
         )}
       </Section>

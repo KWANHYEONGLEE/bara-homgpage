@@ -2,23 +2,16 @@ import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-/** 분류를 유지한 채 페이지만 바꾸는 경로를 만든다 */
-function pageHref(page: number, category?: string) {
-  const params = new URLSearchParams();
-  if (category) params.set("category", category);
-  if (page > 1) params.set("page", String(page));
-  const query = params.toString();
-  return query ? `/newsroom?${query}` : "/newsroom";
+function pageHref(page: number) {
+  return page > 1 ? `/newsroom?page=${page}` : "/newsroom";
 }
 
 export function Pagination({
   page,
   totalPages,
-  category,
 }: {
   page: number;
   totalPages: number;
-  category?: string;
 }) {
   if (totalPages <= 1) return null;
 
@@ -32,17 +25,14 @@ export function Pagination({
         <li>
           {page > 1 ? (
             <Link
-              href={pageHref(page - 1, category)}
+              href={pageHref(page - 1)}
               aria-label="이전 페이지"
               className={cn(arrow, "hover:text-brand-ink")}
             >
               <ChevronLeft className="size-4" />
             </Link>
           ) : (
-            <span
-              aria-hidden
-              className={cn(arrow, "text-muted-foreground/40")}
-            >
+            <span aria-hidden className={cn(arrow, "text-muted-foreground/40")}>
               <ChevronLeft className="size-4" />
             </span>
           )}
@@ -51,7 +41,7 @@ export function Pagination({
         {pages.map((n) => (
           <li key={n}>
             <Link
-              href={pageHref(n, category)}
+              href={pageHref(n)}
               aria-current={n === page ? "page" : undefined}
               className={cn(
                 "inline-flex size-9 items-center justify-center rounded-md text-[15px] tabular-nums transition-colors",
@@ -68,17 +58,14 @@ export function Pagination({
         <li>
           {page < totalPages ? (
             <Link
-              href={pageHref(page + 1, category)}
+              href={pageHref(page + 1)}
               aria-label="다음 페이지"
               className={cn(arrow, "hover:text-brand-ink")}
             >
               <ChevronRight className="size-4" />
             </Link>
           ) : (
-            <span
-              aria-hidden
-              className={cn(arrow, "text-muted-foreground/40")}
-            >
+            <span aria-hidden className={cn(arrow, "text-muted-foreground/40")}>
               <ChevronRight className="size-4" />
             </span>
           )}
