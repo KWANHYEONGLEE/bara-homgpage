@@ -1,6 +1,6 @@
 export function Hero() {
   return (
-    <section className="flex min-h-[60vh] items-center justify-center border-b border-border px-5 py-28 sm:min-h-[70vh] lg:px-8">
+    <section className="hero-gradient flex min-h-[60vh] items-center justify-center px-5 py-28 sm:min-h-[70vh] lg:px-8">
       <div className="mx-auto max-w-3xl text-center">
         <h1 className="text-2xl font-bold leading-[1.5] sm:text-3xl lg:text-[2.5rem] lg:leading-[1.45]">
           Empowering Every Child, with AI

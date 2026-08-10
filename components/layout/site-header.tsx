@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navItems } from "@/lib/site";
@@ -11,13 +11,33 @@ import { navItems } from "@/lib/site";
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // 최상단에서는 배경을 비워 히어로 그라데이션이 그대로 이어지게 하고,
+  // 스크롤을 내리면 본문과 겹치므로 불투명 배경으로 전환한다.
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // 메뉴가 열린 상태에서는 항상 불투명해야 항목이 읽힌다
+  const solid = scrolled || open;
 
   // "/" 는 정확히 일치할 때만, 나머지는 하위 경로까지 활성 처리
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/70 bg-background/85 backdrop-blur-sm">
+    <header
+      className={cn(
+        // 로고 파일에 투명 배경이 없어 헤더는 항상 불투명해야 한다.
+        // 최상단에서는 경계선만 지워 히어로 그라데이션과 부드럽게 만난다.
+        "sticky top-0 z-50 w-full border-b bg-background/85 backdrop-blur-sm transition-colors duration-200",
+        solid ? "border-border/70" : "border-transparent",
+      )}
+    >
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-5 sm:h-18 lg:px-8">
         <Link href="/" className="shrink-0" aria-label="바라스페이스 홈">
           <Image

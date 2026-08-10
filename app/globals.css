@@ -75,6 +75,10 @@
   --border: #e7e7ea;
   --input: #e0e0e4;
   --ring: #f99b20;
+
+  /* 히어로 그라데이션 구성색 — 브랜드 오렌지에서 파생한 난색 계열 */
+  --glow-amber: #ffc46b;
+  --glow-coral: #ff8a5b;
 }
 
 @layer base {
@@ -98,5 +102,37 @@
 
   p {
     text-wrap: pretty;
+  }
+}
+
+@layer components {
+  /**
+   * 히어로 배경.
+   * 단일 linear-gradient 는 띠(banding)가 보이기 쉬워서, 위치가 다른
+   * radial-gradient 를 겹쳐 메시 형태로 만들고 아래쪽은 배경색으로
+   * 흘려보내 다음 섹션과 이음매 없이 이어지게 한다.
+   */
+  .hero-gradient {
+    background-image:
+      radial-gradient(
+        70% 78% at 8% -5%,
+        color-mix(in oklab, var(--primary) 34%, transparent) 0%,
+        transparent 72%
+      ),
+      radial-gradient(
+        66% 72% at 92% -2%,
+        color-mix(in oklab, var(--glow-coral) 28%, transparent) 0%,
+        transparent 74%
+      ),
+      radial-gradient(
+        85% 65% at 50% -8%,
+        color-mix(in oklab, var(--glow-amber) 36%, transparent) 0%,
+        transparent 76%
+      ),
+      linear-gradient(
+        to bottom,
+        transparent 58%,
+        var(--background) 96%
+      );
   }
 }
