@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,8 +8,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { companyInfo } from "@/lib/site";
 
 /**
- * 백엔드가 아직 없으므로 제출 시 메일 클라이언트를 여는 방식으로 동작한다.
- * 서버 수신이 필요해지면 이 핸들러만 API 호출로 교체하면 된다.
+ * 이 폼은 서버로 전송하지 않고 사용자의 메일 앱을 연다.
+ * 그래서 버튼과 안내 문구도 "보낸다"가 아니라 "메일 앱이 열린다"로 쓴다.
+ * 서버 수신이 생기면 handleSubmit 과 문구를 함께 바꾼다.
  */
 export function ContactForm() {
   const [subject, setSubject] = useState("");
@@ -29,64 +29,60 @@ export function ContactForm() {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="rounded-2xl border border-border p-6 sm:p-10"
-    >
-      <h2 className="t-label">Contact us</h2>
-      <p className="t-lead mt-3">궁금한 점을 남겨주세요.</p>
-
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
-        <div className="space-y-2">
-          <Label htmlFor="contact-subject" className="sr-only">
-            제목
-          </Label>
-          <Input
-            id="contact-subject"
-            name="subject"
-            placeholder="제목"
-            required
-            value={subject}
-            onChange={(e) => setSubject(e.target.value)}
-          />
-        </div>
-
-        <div className="space-y-2">
-          <Label htmlFor="contact-email" className="sr-only">
-            이메일 주소
-          </Label>
-          <Input
-            id="contact-email"
-            name="email"
-            type="email"
-            placeholder="이메일 주소"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
+    <form onSubmit={handleSubmit} className="space-y-5">
+      <div className="space-y-2">
+        <Label htmlFor="contact-subject" className="font-medium">
+          제목
+        </Label>
+        <Input
+          id="contact-subject"
+          name="subject"
+          placeholder="문의 제목을 적어주세요"
+          required
+          value={subject}
+          onChange={(e) => setSubject(e.target.value)}
+        />
       </div>
 
-      <div className="mt-4 space-y-2">
-        <Label htmlFor="contact-message" className="sr-only">
-          메시지
+      <div className="space-y-2">
+        <Label htmlFor="contact-email" className="font-medium">
+          회신받을 이메일
+        </Label>
+        <Input
+          id="contact-email"
+          name="email"
+          type="email"
+          placeholder="name@example.com"
+          required
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+
+      <div className="space-y-2">
+        <Label htmlFor="contact-message" className="font-medium">
+          내용
         </Label>
         <Textarea
           id="contact-message"
           name="message"
-          placeholder="메시지"
+          placeholder="어떤 내용이든 편하게 적어주세요."
           required
-          rows={7}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="resize-y"
+          className="min-h-44 resize-y"
         />
       </div>
 
-      <Button type="submit" variant="outline" className="mt-6 rounded-full">
-        메시지 보내기
-        <ArrowRight className="size-4" />
-      </Button>
+      <div className="pt-1">
+        <Button type="submit" size="lg" className="w-full sm:w-auto">
+          메일 앱으로 작성하기
+        </Button>
+        <p className="t-caption mt-3">
+          누르면 입력한 내용이 담긴 채로 메일 앱이 열립니다. 마지막 전송은
+          메일 앱에서 직접 해주세요.
+        </p>
+      </div>
     </form>
   );
 }

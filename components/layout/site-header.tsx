@@ -66,7 +66,7 @@ export function SiteHeader() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="-mr-2 inline-flex size-10 items-center justify-center rounded-md text-foreground/80 md:hidden"
+          className="-mr-2.5 inline-flex size-11 items-center justify-center rounded-md text-foreground/80 md:hidden"
           aria-label={open ? "메뉴 닫기" : "메뉴 열기"}
           aria-expanded={open}
         >
