@@ -1,23 +1,22 @@
 import type { Metadata } from "next";
-import { PageHeader } from "@/components/layout/page-header";
-import { WhoWeAre } from "@/components/sections/who-we-are";
-import { Certifications } from "@/components/sections/certifications";
+import { AboutHero } from "@/components/sections/about-hero";
+import { FoundingStory } from "@/components/sections/founding-story";
+import { Vision } from "@/components/sections/vision";
+import { History } from "@/components/sections/history";
 
 export const metadata: Metadata = {
   title: "회사소개",
   description:
-    "바라스페이스는 아이의 미래를 바꾸고, 부모의 성장을 돕는 기업입니다.",
+    "간절한 바람이 세상을 바꾸는 바람이 되도록. 바라스페이스가 걸어온 길과 일하는 방식을 소개합니다.",
 };
 
 export default function AboutPage() {
   return (
     <>
-      <PageHeader
-        title="회사소개"
-        description="아이의 사회·정서 학습부터 부모의 성장까지, 기술과 전문가의 경험을 연결합니다."
-      />
-      <WhoWeAre />
-      <Certifications />
+      <AboutHero />
+      <FoundingStory />
+      <Vision />
+      <History />
     </>
   );
 }
