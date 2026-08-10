@@ -43,15 +43,16 @@ export function SiteHeader() {
           <SiteLogo priority className="h-6 sm:h-7" />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex" aria-label="주요 메뉴">
+        <nav className="hidden items-center gap-7 md:flex" aria-label="주요 메뉴">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
               aria-current={isActive(item.href) ? "page" : undefined}
               className={cn(
-                // 브랜드 원색은 흰 배경에서 2.16:1 이라 글씨로 못 쓴다
-                "text-[15px] transition-colors hover:text-brand-ink",
+                // 브랜드 원색은 흰 배경에서 2.16:1 이라 글씨로 못 쓴다.
+                // py 로 탭 타깃 높이를 확보한다(글자 높이만으로는 23px)
+                "t-ui -my-2 py-2.5 transition-colors hover:text-brand-ink",
                 isActive(item.href)
                   ? "font-semibold text-brand-ink"
                   : "font-medium text-foreground/80",
@@ -86,7 +87,7 @@ export function SiteHeader() {
                   onClick={() => setOpen(false)}
                   aria-current={isActive(item.href) ? "page" : undefined}
                   className={cn(
-                    "block py-3 text-[15px] transition-colors",
+                    "t-ui block py-3.5 transition-colors",
                     isActive(item.href)
                       ? "font-semibold text-brand-ink"
                       : "font-medium text-foreground/80",

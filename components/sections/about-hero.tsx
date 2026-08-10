@@ -5,7 +5,7 @@ export function AboutHero() {
     <section className="hero-gradient -mt-16 flex min-h-[calc(34vh+4rem)] items-center justify-center px-5 pb-16 pt-32 sm:-mt-18 sm:min-h-[calc(38vh+4.5rem)] sm:pb-[4.5rem] sm:pt-36 lg:px-8">
       <div className="mx-auto max-w-3xl text-center">
         <h1 className="t-display">TEAM&nbsp;·&nbsp;BARA</h1>
-        <p className="mx-auto mt-5 max-w-xl text-[15px] leading-[1.75] text-muted-foreground sm:text-base">
+        <p className="t-body-sm mx-auto mt-5 max-w-xl">
           바라스페이스가 걸어온 길과 일하는 방식을 소개합니다.
         </p>
       </div>

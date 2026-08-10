@@ -46,9 +46,7 @@ export function BusinessHero() {
                 className="group flex items-baseline gap-4 border-b border-border/80 py-5 transition-colors hover:text-brand-ink"
               >
                 <span className="t-title shrink-0">{line.name}</span>
-                <span className="t-body min-w-0 flex-1 text-[15px] leading-normal">
-                  {line.summary}
-                </span>
+                <span className="t-body-sm min-w-0 flex-1">{line.summary}</span>
                 <ArrowDown
                   aria-hidden
                   className="size-4 shrink-0 translate-y-0.5 text-muted-foreground transition-colors group-hover:text-brand-ink"

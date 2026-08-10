@@ -7,7 +7,7 @@ export function Hero() {
     <section className="hero-gradient -mt-16 flex min-h-[calc(54vh+4rem)] items-center justify-center px-5 pb-20 pt-36 sm:-mt-18 sm:min-h-[calc(56vh+4.5rem)] sm:pb-[4.5rem] sm:pt-36 lg:px-8">
       <div className="mx-auto max-w-3xl text-center">
         <h1 className="t-display">Empowering Every Child, with AI</h1>
-        <p className="mx-auto mt-5 max-w-xl text-[15px] leading-[1.75] text-muted-foreground sm:text-base">
+        <p className="t-body-sm mx-auto mt-5 max-w-xl">
           아이의 오늘을 이해하고, 내일의 성장을 돕는 기업
         </p>
       </div>

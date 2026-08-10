@@ -17,7 +17,7 @@ export function Pagination({
 
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
   const arrow =
-    "inline-flex size-9 items-center justify-center rounded-md border border-border transition-colors";
+    "inline-flex size-11 items-center justify-center rounded-md border border-border transition-colors";
 
   return (
     <nav aria-label="페이지" className="mt-14 flex justify-center">
@@ -44,7 +44,7 @@ export function Pagination({
               href={pageHref(n)}
               aria-current={n === page ? "page" : undefined}
               className={cn(
-                "inline-flex size-9 items-center justify-center rounded-md text-[15px] tabular-nums transition-colors",
+                "t-ui inline-flex size-11 items-center justify-center rounded-md tabular-nums transition-colors",
                 n === page
                   ? "bg-foreground font-semibold text-background"
                   : "text-foreground/80 hover:text-brand-ink",

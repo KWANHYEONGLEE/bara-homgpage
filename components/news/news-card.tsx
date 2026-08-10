@@ -33,7 +33,7 @@ export function NewsCard({ post }: { post: NewsPost }) {
           <h3 className="t-title line-clamp-2 transition-colors group-hover:text-brand-ink">
             {post.title}
           </h3>
-          <p className="t-body mt-2.5 line-clamp-2 text-[15px] leading-[1.7]">
+          <p className="t-body-sm mt-2.5 line-clamp-2">
             {post.excerpt}
           </p>
 

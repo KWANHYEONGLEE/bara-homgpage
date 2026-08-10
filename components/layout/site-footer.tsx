@@ -15,13 +15,13 @@ export function SiteFooter() {
           <SiteLogo className="h-7" />
         </Link>
 
-        <nav className="mt-10 flex items-center gap-6 text-sm" aria-label="푸터 메뉴">
+        <nav className="t-ui mt-10 flex items-center gap-6" aria-label="푸터 메뉴">
           {footerLinks.map((link, i) => (
             <span key={link.href} className="flex items-center gap-6">
               {i > 0 && <span aria-hidden className="h-3 w-px bg-border" />}
               <Link
                 href={link.href}
-                className="text-foreground/80 transition-colors hover:text-brand-ink"
+                className="-my-2 py-2.5 text-foreground/80 transition-colors hover:text-brand-ink"
               >
                 {link.label}
               </Link>
@@ -29,7 +29,7 @@ export function SiteFooter() {
           ))}
         </nav>
 
-        <address className="mt-10 w-full border-t border-border pt-8 text-center text-sm not-italic leading-7 text-muted-foreground">
+        <address className="mt-10 w-full border-t border-border pt-8 text-center text-[15px] not-italic leading-[1.9] text-muted-foreground">
           <p>{companyInfo.legalName}</p>
           <p>
             대표: {companyInfo.ceo} · 사업자번호: {companyInfo.businessNumber}
@@ -40,14 +40,14 @@ export function SiteFooter() {
             메일:{" "}
             <a
               href={`mailto:${companyInfo.email}`}
-              className="transition-colors hover:text-brand-ink"
+              className="inline-block py-2 underline underline-offset-4 transition-colors hover:text-brand-ink"
             >
               {companyInfo.email}
             </a>
           </p>
         </address>
 
-        <p className="mt-8 text-xs text-muted-foreground/70">
+        <p className="mt-8 text-[13px] text-muted-foreground">
           © {new Date().getFullYear()} BARASPACE Co., Ltd. All Rights Reserved.
         </p>
       </div>
