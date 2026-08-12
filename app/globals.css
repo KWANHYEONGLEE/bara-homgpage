@@ -1,0 +1,282 @@
+@import "tailwindcss";
+
+@theme {
+  /* 로고 스트립 무한 흐름 — 트랙에 목록을 2회 넣고 절반만큼 이동시킨다 */
+  --animate-marquee: marquee 32s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+@theme inline {
+  --font-sans: var(--font-pretendard), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-gmarket), var(--font-pretendard), sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-brand-ink: var(--brand-ink);
+  --color-surface: var(--surface);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /*
+   * 대비는 모두 흰 배경(#fff) 기준 실측값.
+   * 브랜드 오렌지는 흰 배경에서 2.16:1 이라 "글씨로 쓸 수 없다".
+   * 그래서 면(버튼 바탕·그라데이션)은 --primary, 글씨는 --brand-ink 로
+   * 역할을 갈라 둔다.
+   */
+  --background: #ffffff;
+  --foreground: #23242b; /* 15.5:1 */
+
+  --card: #ffffff;
+  --card-foreground: #23242b;
+  --popover: #ffffff;
+  --popover-foreground: #23242b;
+
+  /* 면 전용. 글씨색은 흰색(2.16:1)이 아니라 잉크(7.17:1)를 얹는다 */
+  --primary: #f99b20;
+  --primary-foreground: #23242b;
+
+  /* 흰 배경 위 브랜드 "글씨" 전용 */
+  --brand-ink: #a85f00; /* 4.9:1 */
+
+  --secondary: #f6f6f7;
+  --secondary-foreground: #23242b;
+
+  --muted: #f6f6f7;
+  --muted-foreground: #55565f; /* 7.3:1 — 종전 #767683 은 4.48:1 로 AA 미달 */
+
+  --accent: #fff4e6;
+  --accent-foreground: #a85f00;
+
+  --destructive: #c81e1e;
+  --destructive-foreground: #ffffff;
+
+  --border: #e7e7ea;
+  --input: #d6d6dc;
+  --ring: #a85f00;
+
+  /* 히어로 그라데이션 구성색 — 브랜드 오렌지에서 파생한 난색 계열 */
+  --glow-amber: #ffc46b;
+  --glow-coral: #ff8a5b;
+
+  /*
+   * 섹션 구분용 배경.
+   * 구분선 대신 이 색을 번갈아 깔아 섹션을 나눈다.
+   * 히어로 그라데이션이 난색이라 회색(--secondary)이 아니라
+   * 같은 계열의 아주 옅은 크림으로 두어 위아래가 따로 놀지 않게 한다.
+   */
+  --surface: #fdfaf6;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    letter-spacing: -0.01em;
+    /*
+     * 한글은 기본값(break-all 성격)으로 두면 어절 한가운데서 줄이 바뀌어
+     * "기업 / 입니다." 처럼 읽힌다. keep-all 로 어절을 붙여 둔다.
+     */
+    word-break: keep-all;
+    overflow-wrap: break-word;
+  }
+
+  /* 시안의 한글 제목은 자간이 좁고 행간이 넉넉함 */
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* 사업소개 색인처럼 페이지 안에서 건너뛸 때만 부드럽게 */
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  /* 키보드 이동 경로가 항상 보이도록. 브랜드 원색은 대비가 낮아 brand-ink 사용 */
+  :focus-visible {
+    outline: 2px solid var(--brand-ink);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+@layer components {
+  /**
+   * 타입 스케일.
+   * 60/34/25/19/15 (+라벨 14). clamp 로 모바일~데스크톱을 잇는다.
+   * "글씨가 전반적으로 작다"는 피드백에 따라 52/28/21/17/14 에서
+   * 한 단계씩 올렸다. 개별 컴포넌트를 고치지 않고 여기만 바꾸면
+   * 전체가 같은 비율로 커지도록 스케일을 한곳에 모아 둔 것이다.
+   *
+   * GmarketSans(--font-display)는 히어로 디스플레이에만 쓴다.
+   * 읽는 텍스트는 전부 Pretendard.
+   */
+  .t-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2rem, 5.1vw, 3.75rem);
+    line-height: 1.22;
+    letter-spacing: -0.03em;
+  }
+
+  /* 섹션 라벨 — 제목이 아니라 분류표라서 작고 조용하게 */
+  .t-label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 0.09em;
+    color: var(--brand-ink);
+  }
+
+  /* 섹션이 실제로 하는 말 — 시각적 제목 역할은 여기가 맡는다 */
+  .t-lead {
+    font-size: clamp(1.4375rem, 2.5vw, 2.125rem);
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.025em;
+  }
+
+  .t-title {
+    font-size: clamp(1.25rem, 1.8vw, 1.5625rem);
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: -0.02em;
+  }
+
+  /* 본문 — 17px(모바일)~19px(데스크톱) / 행간 1.85 / 대비 7.3:1 */
+  .t-body {
+    font-size: clamp(1.0625rem, 1.4vw, 1.1875rem);
+    font-weight: 400;
+    line-height: 1.85;
+    color: var(--muted-foreground);
+  }
+
+  /* 카드·목록처럼 짧고 조밀한 본문. 흐르는 산문이 아니라 행간을 좁힌다 */
+  .t-body-sm {
+    font-size: 1.0625rem;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--muted-foreground);
+  }
+
+  /*
+   * 누르고 입력하는 텍스트.
+   * 읽는 텍스트는 잘 잡혀 있는데 상호작용 요소만 14~15px 로 남아 있었다.
+   * 주 독자가 30~50대 학부모라 만지는 요소는 본문과 같은 크기로 둔다.
+   */
+  .t-ui {
+    font-size: 1.0625rem;
+    line-height: 1.5;
+  }
+
+  .t-caption {
+    font-size: 0.875rem;
+    line-height: 1.7;
+    color: var(--muted-foreground);
+  }
+
+  /*
+   * 푸터 사업자 정보.
+   * 읽는 글이 아니라 필요할 때 확인하는 정보라 본문보다 작다.
+   * 좁은 화면에서는 한 줄이 두세 줄로 접혀 덩어리가 커 보이므로
+   * 한 단계 더 줄인다. 데스크톱은 종전 크기 그대로.
+   */
+  .t-legal {
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    color: var(--muted-foreground);
+  }
+
+  @media (min-width: 40rem) {
+    .t-caption {
+      font-size: 0.9375rem;
+    }
+
+    .t-legal {
+      font-size: 1.0625rem;
+      line-height: 1.9;
+    }
+  }
+
+  /*
+   * 한글 본문 최적 줄길이(약 35자).
+   * ch 는 숫자 0 의 폭이라 한글 1자 ≈ 2ch 로, ch 로 잡으면 절반으로 좁아진다.
+   * 한글은 1자 ≈ 1em 이므로 em 으로 잡는다.
+   */
+  .measure {
+    max-width: 35em;
+  }
+
+  /**
+   * 히어로 배경.
+   * 단일 linear-gradient 는 띠(banding)가 보이기 쉬워서, 위치가 다른
+   * radial-gradient 를 겹쳐 메시 형태로 만들고 아래쪽은 배경색으로
+   * 흘려보내 다음 섹션과 이음매 없이 이어지게 한다.
+   */
+  .hero-gradient {
+    background-image:
+      radial-gradient(
+        70% 78% at 8% -5%,
+        color-mix(in oklab, var(--primary) 34%, transparent) 0%,
+        transparent 72%
+      ),
+      radial-gradient(
+        66% 72% at 92% -2%,
+        color-mix(in oklab, var(--glow-coral) 28%, transparent) 0%,
+        transparent 74%
+      ),
+      radial-gradient(
+        85% 65% at 50% -8%,
+        color-mix(in oklab, var(--glow-amber) 36%, transparent) 0%,
+        transparent 76%
+      ),
+      linear-gradient(
+        to bottom,
+        transparent 58%,
+        var(--background) 96%
+      );
+  }
+}
