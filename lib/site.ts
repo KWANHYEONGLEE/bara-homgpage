@@ -21,7 +21,7 @@ export const navItems = [
 export const companyInfo = {
   legalName: "주식회사 바라스페이스",
   ceo: "윤미리",
-  businessNumber: "559-86-003522",
+  businessNumber: "559-86-03522",
   mailOrderNumber: "제 2026-성남수정-0510호",
   address:
     "경기도 성남시 수정구 대왕판교로 815, 판교창조경제밸리 713호(시흥동)",
