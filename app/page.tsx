@@ -5,6 +5,7 @@ import { Solutions } from "@/components/sections/solutions";
 import { Certifications } from "@/components/sections/certifications";
 import { ContactForm } from "@/components/sections/contact-form";
 import { Section } from "@/components/layout/section";
+import { SiteFooter } from "@/components/layout/site-footer";
 
 export default function HomePage() {
   return (
@@ -25,6 +26,7 @@ export default function HomePage() {
           </div>
         </div>
       </Section>
+      <SiteFooter />
     </>
   );
 }

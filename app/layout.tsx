@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { gmarketSans, pretendard } from "./fonts";
 import { SiteHeader } from "@/components/layout/site-header";
-import { SiteFooter } from "@/components/layout/site-footer";
 
 const SITE_URL = "https://www.baraspace.com";
 
@@ -35,8 +34,11 @@ export default function RootLayout({
     >
       <body className="min-w-[360px]">
         <SiteHeader />
+        {/*
+          푸터는 전역이 아니라 홈과 문의 페이지에서만 붙인다.
+          (app/page.tsx, app/contact/page.tsx)
+        */}
         <main>{children}</main>
-        <SiteFooter />
       </body>
     </html>
   );
