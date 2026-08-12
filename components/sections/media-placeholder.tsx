@@ -1,17 +1,9 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-/** 원본 캔버스 크기와, 그 안에서 실제 그림이 차지하는 영역(px) */
-export type Crop = {
-  /** 캔버스 크기 */
-  canvasW: number;
-  canvasH: number;
-  /** 콘텐츠 바운딩 박스 */
-  x: number;
-  y: number;
-  w: number;
-  h: number;
-};
+// 좌표는 lib/media.ts 에서만 관리한다 (같은 이미지를 여러 화면이 공유)
+export type { Crop } from "@/lib/media";
+import type { Crop } from "@/lib/media";
 
 /**
  * 콘텐츠 영역이 컨테이너를 채우도록 여백을 잘라내는 좌표를 계산한다.

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Section, SectionHeading } from "@/components/layout/section";
-import { Media, type Crop } from "@/components/sections/media-placeholder";
+import { Media } from "@/components/sections/media-placeholder";
+import { imageCrops, type Crop } from "@/lib/media";
 import { Button } from "@/components/ui/button";
 import { externalLinks } from "@/lib/site";
 
@@ -35,7 +36,7 @@ const solutions: Solution[] = [
     media: {
       src: "/images/solutions/solution_1.png",
       alt: "심바키즈 서비스 화면",
-      crop: { canvasW: 1121, canvasH: 937, x: 264, y: 262, w: 592, h: 409 },
+      ...imageCrops.solution1,
     },
   },
   {
@@ -56,7 +57,7 @@ const solutions: Solution[] = [
     media: {
       src: "/images/solutions/solution_2.png",
       alt: "AI 부모코칭 서비스 화면",
-      crop: { canvasW: 1121, canvasH: 1080, x: 264, y: 262, w: 592, h: 553 },
+      ...imageCrops.solution2,
     },
   },
   {
@@ -77,10 +78,7 @@ const solutions: Solution[] = [
     media: {
       src: "/images/solutions/solution_3.png",
       alt: "바라 임팩트 솔루션 구조도",
-      // 교체된 원본(454x466)은 이미 빠듯하게 잘려 있어 좌우 여백이 14px뿐이다.
-      // 기본 4% 여백은 캔버스를 넘어가므로 3% 로 낮춘다.
-      crop: { canvasW: 454, canvasH: 466, x: 14, y: 40, w: 416, h: 384 },
-      pad: 0.03,
+      ...imageCrops.solution3,
     },
   },
 ];

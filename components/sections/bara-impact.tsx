@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { Section } from "@/components/layout/section";
 import { FeatureCards, type Feature } from "@/components/sections/feature-cards";
 import { Media } from "@/components/sections/media-placeholder";
+import { imageCrops } from "@/lib/media";
 import { StepList, type Step } from "@/components/sections/step-list";
 import { Button } from "@/components/ui/button";
 
@@ -76,7 +77,7 @@ export function BaraImpact() {
       <Media
         src="/images/solutions/solution_3.png"
         alt="지역사회·학교·전문가를 연결하는 바라 임팩트 솔루션 구조도"
-        crop={{ canvasW: 1074, canvasH: 1024, x: 278, y: 269, w: 536, h: 480 }}
+        {...imageCrops.solution3}
         className="mx-auto mt-12 max-w-2xl sm:mt-14"
       />
       <FeatureCards features={features} />

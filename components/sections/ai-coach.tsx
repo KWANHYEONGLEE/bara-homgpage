@@ -4,6 +4,7 @@ import {
   type Feature,
 } from "@/components/sections/feature-cards";
 import { Media } from "@/components/sections/media-placeholder";
+import { imageCrops } from "@/lib/media";
 import { StepList, type Step } from "@/components/sections/step-list";
 
 /** 이해 -> 방법 -> 지속. 순서가 곧 코칭이 진행되는 흐름이다. */
@@ -73,7 +74,7 @@ export function AiCoach() {
       <Media
         src="/images/solutions/solution_2.png"
         alt="AI 부모코칭 서비스 화면"
-        crop={{ canvasW: 1121, canvasH: 1080, x: 264, y: 262, w: 592, h: 553 }}
+        {...imageCrops.solution2}
         className="mx-auto mt-12 max-w-3xl sm:mt-14"
       />
 
