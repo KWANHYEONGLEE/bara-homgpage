@@ -77,7 +77,7 @@ export function Vision() {
   return (
     <Section>
       <SectionHeading label="Vision" lead="beyond space, for human growth" />
-      <p className="t-caption mx-auto mt-4 max-w-xl text-center">
+      <p className="t-caption mx-auto mt-4 max-w-3xl text-center font-bold">
         Enable everyone to understand children and provide them with the support
         they need.
       </p>
@@ -112,7 +112,7 @@ export function Vision() {
 
             <span
               className={cn(
-                "t-title absolute inset-x-0 bottom-3 text-center sm:bottom-4 sm:text-5xl",
+                "t-title absolute inset-x-0 bottom-3 text-center sm:bottom-4 sm:text-4xl",
                 photo.src ? "text-white" : "text-muted-foreground",
               )}
             >
@@ -125,7 +125,7 @@ export function Vision() {
       <dl className="mt-16 grid gap-x-16 gap-y-10 sm:mt-20 md:grid-cols-2">
         {values.map((value) => (
           <div key={value.title}>
-            <dt className="t-title">{value.title}</dt>
+            <dt className="t-title sm:text-3xl">{value.title}</dt>
             <dd className="t-body measure mt-3">{value.body}</dd>
           </div>
         ))}

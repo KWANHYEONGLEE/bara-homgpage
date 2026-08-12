@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Section } from "@/components/layout/section";
-import { FeatureCards, type Feature } from "@/components/sections/feature-cards";
+import {
+  FeatureCards,
+  type Feature,
+} from "@/components/sections/feature-cards";
 import { IntroVideo } from "@/components/sections/intro-video";
 import { Button } from "@/components/ui/button";
 import { externalLinks } from "@/lib/site";
@@ -56,9 +59,6 @@ export function Simbakids() {
       <div className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-xl border border-border bg-secondary sm:mt-14">
         <IntroVideo />
       </div>
-      <p className="t-caption mx-auto mt-3 max-w-4xl text-center">
-        소리 없이 자동 재생됩니다. 소리는 재생바에서 켜주세요.
-      </p>
 
       <FeatureCards features={features} />
 
