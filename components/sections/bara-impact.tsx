@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Section } from "@/components/layout/section";
@@ -21,6 +22,42 @@ const steps: Step[] = [
   },
 ];
 
+const features = [
+  {
+    title: "기회를 더 넓게",
+    body: (
+      <span>
+        더 많은 아이에게 <br />
+        배움의 기회를 연결합니다.
+      </span>
+    ),
+    image: "/images/business/business_7.png",
+    alt: "감정 이해하기 워크북과 또래관계·집중력 프로그램 교재",
+  },
+  {
+    title: "성장을 더 오래",
+    body: (
+      <span>
+        일회성을 넘어 <br />
+        지속적인 성장을 지원합니다.
+      </span>
+    ),
+    image: "/images/business/business_8.png",
+    alt: "화상으로 1:1 상담을 받는 아이와, 소규모 그룹 수업 장면",
+  },
+  {
+    title: "변화를 함께",
+    body: (
+      <span>
+        지역사회와 함께 <br />
+        성장의 기반을 만듭니다.
+      </span>
+    ),
+    image: "/images/business/business_9.png",
+    alt: "회의 테이블에 모여 논의하는 상담·교육 전문가들",
+  },
+];
+
 export function BaraImpact() {
   return (
     <Section
@@ -31,7 +68,7 @@ export function BaraImpact() {
       <div className="text-center">
         <h2 className="t-label">바라 임팩트</h2>
         <p className="t-lead mx-auto mt-4 max-w-2xl">
-          교육·돌봄 사각지대의 아이와 지역사회를 잇습니다
+          교육·돌봄 사각지대를 지원하는 '바라 임팩트'
         </p>
       </div>
 
@@ -42,10 +79,35 @@ export function BaraImpact() {
         crop={{ canvasW: 1074, canvasH: 1024, x: 278, y: 269, w: 536, h: 480 }}
         className="mx-auto mt-12 max-w-2xl sm:mt-14"
       />
+      <ul className="mt-12 grid gap-5 sm:mt-14 md:grid-cols-3 text-center">
+        {features.map((feature) => (
+          <li
+            key={feature.title}
+            className="flex flex-col overflow-hidden rounded-xl border border-border "
+          >
+            {/* 원본 사진이 272x350 이라 4:5 로 담는다 */}
+            <div className="relative aspect-4/5 shrink-0 border-b border-border bg-secondary">
+              <Image
+                src={feature.image}
+                alt={feature.alt}
+                fill
+                sizes="(min-width: 768px) 33vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+            <div className="p-5">
+              <h3 className="t-title sm:text-3xl font-bold">{feature.title}</h3>
+              <p className="t-body mt-2.5 sm:text-2xl font-semibold">
+                {feature.body}
+              </p>
+            </div>
+          </li>
+        ))}
+      </ul>
 
-      <div className="mx-auto mt-14 max-w-2xl sm:mt-16">
+      {/* <div className="mx-auto mt-14 max-w-2xl sm:mt-16">
         <StepList steps={steps} />
-      </div>
+      </div> */}
 
       <div className="mt-12 text-center sm:mt-14">
         <Button asChild size="lg" className="rounded-full">
