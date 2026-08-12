@@ -50,11 +50,11 @@ export function SectionHeading({
 }) {
   return (
     <div className={cn(align === "center" && "text-center", className)}>
-      <h2 className="t-label">{label}</h2>
+      <h2 className="t-heading">{label}</h2>
       {lead && (
         <p
           className={cn(
-            "t-lead mt-4 font-bold sm:text-5xl",
+            "t-lead mt-4",
             align === "center" && "mx-auto max-w-2xl",
           )}
         >

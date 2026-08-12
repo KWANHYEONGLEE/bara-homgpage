@@ -14,7 +14,7 @@ export function FoundingStory() {
   return (
     <Section>
       <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)] md:gap-16">
-        <h2 className="t-label md:pt-2">Founding Story</h2>
+        <h2 className="t-heading md:pt-2">Founding Story</h2>
 
         <div>
           <p className="t-lead max-w-2xl">

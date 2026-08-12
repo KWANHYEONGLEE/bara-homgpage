@@ -14,10 +14,10 @@ export default function ContactPage() {
     <>
       <section className="hero-gradient -mt-16 px-5 pb-16 pt-32 sm:-mt-18 sm:pb-20 sm:pt-36 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="t-label">문의</p>
-          <h1 className="t-lead mt-4">
+          <h1 className="t-heading">문의</h1>
+          <p className="t-lead mt-4">
             사업 제휴, 임팩트 사업, 채용 등 무엇이든 편하게 문의해주세요.
-          </h1>
+          </p>
         </div>
       </section>
 

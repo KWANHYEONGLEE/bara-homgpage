@@ -47,8 +47,8 @@ export function Simbakids() {
     // 색인에서 건너뛸 때 sticky 헤더에 제목이 가리지 않도록 여백을 준다
     <Section id="simbakids" className="scroll-mt-20 sm:scroll-mt-24">
       <div className="text-center">
-        <h2 className="t-label">심바키즈</h2>
-        <p className="t-lead mx-auto mt-4 max-w-4xl sm:text-5xl">
+        <h2 className="t-heading">심바키즈</h2>
+        <p className="t-lead mx-auto mt-4 max-w-4xl">
           대한민국 No.1 아동·청소년 심리 상담 플랫폼
         </p>
       </div>

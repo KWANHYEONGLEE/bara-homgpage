@@ -63,7 +63,7 @@ const history: YearGroup[] = [
 export function History() {
   return (
     <Section bordered={false}>
-      <h2 className="t-label">History</h2>
+      <h2 className="t-heading">History</h2>
 
       <div className="mt-10 space-y-14 sm:mt-12 sm:space-y-16">
         {history.map((group) => (

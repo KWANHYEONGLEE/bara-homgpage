@@ -67,7 +67,7 @@ export function BaraImpact() {
       className="scroll-mt-20 sm:scroll-mt-24"
     >
       <div className="text-center">
-        <h2 className="t-label">바라 임팩트</h2>
+        <h2 className="t-heading">바라 임팩트</h2>
         <p className="t-lead mx-auto mt-4 max-w-2xl">
           교육·돌봄 사각지대를 지원하는 ‘바라 임팩트’
         </p>

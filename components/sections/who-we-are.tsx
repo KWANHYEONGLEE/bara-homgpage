@@ -9,7 +9,7 @@ export function WhoWeAre() {
   return (
     <Section tone="muted" bordered={false}>
       <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)] md:gap-16">
-        <h2 className="t-label md:pt-2">Who We Are</h2>
+        <h2 className="t-heading md:pt-2">Who We Are</h2>
 
         <div>
           <p className="t-lead max-w-2xl">바라스페이스는</p>
