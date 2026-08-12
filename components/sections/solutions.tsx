@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { externalLinks } from "@/lib/site";
 
 type Solution = {
-  title: string;
+  title: string | React.ReactNode;
   body: string | React.ReactNode;
   cta?: { label: string; href: string; external?: boolean };
   media: { src: string; alt: string; crop: Crop };
@@ -14,7 +14,13 @@ type Solution = {
 
 const solutions: Solution[] = [
   {
-    title: "No.1 아동·청소년 심리 상담 플랫폼",
+    title: (
+      <span>
+        No.1 아동·청소년 심리 상담 플랫폼
+        <br />
+        {`'심바키즈'`}
+      </span>
+    ),
     body: (
       <span>
         느린 아이의 심리 케어부터 사회성 강화까지,
@@ -33,7 +39,14 @@ const solutions: Solution[] = [
     },
   },
   {
-    title: "아이의 오늘을 이해하고\n내일의 성장을 이끄는 AI",
+    title: (
+      <span>
+        아이의 오늘을 이해하고 <br />
+        내일의 성장을 이끄는 <span className="font-bold">AI 코치</span>
+        <br />
+        {`'아이젤리'`}
+      </span>
+    ),
     body: (
       <span>
         검색해도 우리 아이 이야기는 없으니까, <br />
@@ -47,7 +60,13 @@ const solutions: Solution[] = [
     },
   },
   {
-    title: "바라 임팩트 솔루션",
+    title: (
+      <span>
+        교육·돌봄 사각지대를 지원하는
+        <br />
+        {`'바라 임팩트'`}
+      </span>
+    ),
     body: (
       <span>
         교육·돌봄 사각지대 아동·청소년을 위해 <br />
@@ -78,7 +97,7 @@ export function Solutions() {
 
           return (
             <div
-              key={item.title}
+              key={i}
               className="grid items-center gap-8 md:grid-cols-2 md:gap-14"
             >
               <Media
