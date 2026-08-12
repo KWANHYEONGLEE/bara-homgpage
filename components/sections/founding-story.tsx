@@ -13,16 +13,19 @@ const paragraphs = [
 export function FoundingStory() {
   return (
     <Section>
-      <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)] md:gap-16">
-        <h2 className="t-label md:pt-2">Founding Story</h2>
+      {/* 홈 Who We Are 와 같은 좌우 동일 분할 (참고 사이트 Founding Story) */}
+      <div className="grid gap-6 lg:grid-cols-2 lg:gap-16">
+        <h2 className="t-heading lg:pt-2">Founding Story</h2>
 
         <div>
-          <p className="t-lead max-w-2xl">
+          <p className="t-lead">
             간절한 &lsquo;바람(Wish)&rsquo;이,
             <br />
             세상을 바꾸는 &lsquo;바람(Wind)&rsquo;이 되다
           </p>
 
+          {/* lg 에서는 칸(544px)이 measure(35em)보다 좁아 무효.
+              쌓이는 좁은 화면에서만 줄길이를 잡아준다 */}
           <div className="measure mt-8 space-y-6">
             {paragraphs.map((text) => (
               <p key={text} className="t-body">

@@ -32,10 +32,9 @@ export function BusinessHero() {
     <section className="hero-gradient -mt-16 px-5 pb-16 pt-32 sm:-mt-18 sm:pb-20 sm:pt-36 lg:px-8">
       <div className="mx-auto max-w-3xl">
         <div className="text-center">
-          <p className="t-label">사업소개</p>
-          <h1 className="t-lead mt-4">
+          <p className="t-lead mt-4">
             바라스페이스는 세 가지 사업으로 아이와 부모, 지역사회를 잇습니다.
-          </h1>
+          </p>
         </div>
 
         <ul className="mt-12 border-t border-border/80 sm:mt-14">

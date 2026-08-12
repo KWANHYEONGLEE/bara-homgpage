@@ -29,10 +29,10 @@ export default async function NewsroomPage({
     <>
       <section className="hero-gradient -mt-16 px-5 pb-16 pt-32 sm:-mt-18 sm:pb-20 sm:pt-36 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <p className="t-label">뉴스룸</p>
-          <h1 className="t-lead mt-4">
+          <h1 className="t-heading">뉴스룸</h1>
+          <p className="t-lead mt-4">
             바라스페이스의 소식과 보도자료를 전합니다.
-          </h1>
+          </p>
         </div>
       </section>
 

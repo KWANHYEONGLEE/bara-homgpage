@@ -8,15 +8,23 @@ const paragraphs = [
 export function WhoWeAre() {
   return (
     <Section tone="muted" bordered={false}>
-      <div className="grid gap-6 md:grid-cols-[minmax(0,1fr)_minmax(0,2.4fr)] md:gap-16">
-        <h2 className="t-label md:pt-2">Who We Are</h2>
+      {/*
+        참고 사이트처럼 좌우를 같은 폭으로 나눈다. 1:2.4 로 나누고 글에
+        max-w 까지 걸면 오른쪽에 빈 공간이 남아 글 덩어리가 가운데로
+        몰려 보인다. 두 칸이 화면 양끝을 잡아야 안정적으로 읽힌다.
+        한 칸이 너무 좁아지지 않도록 나누는 시점은 lg 부터.
+      */}
+      <div className="grid gap-6 lg:grid-cols-2 lg:gap-16">
+        <h2 className="t-heading lg:pt-2">Who We Are</h2>
 
         <div>
-          <p className="t-lead max-w-2xl">바라스페이스는</p>
-          <p className="t-lead max-w-2xl">
+          <p className="t-lead">바라스페이스는</p>
+          <p className="t-lead">
             아이의 미래를 바꾸고, 부모의 성장을 돕는 기업입니다.
           </p>
 
+          {/* lg 에서는 칸(544px)이 measure(35em)보다 좁아 무효.
+              쌓이는 좁은 화면에서만 줄길이를 잡아준다 */}
           <div className="measure mt-8 space-y-6">
             {paragraphs.map((text) => (
               <p key={text} className="t-body">

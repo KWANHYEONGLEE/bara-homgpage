@@ -17,7 +17,7 @@ export default function HomePage() {
       <Section bordered={false}>
         <div className="mx-auto max-w-xl">
           <div className="text-center">
-            <h2 className="t-label">Contact us</h2>
+            <h2 className="t-heading">Contact us</h2>
           </div>
 
           <div className="mt-10">

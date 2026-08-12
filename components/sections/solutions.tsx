@@ -1,20 +1,27 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Section, SectionHeading } from "@/components/layout/section";
-import { Media, type Crop } from "@/components/sections/media-placeholder";
+import { Media } from "@/components/sections/media-placeholder";
+import { imageCrops, type Crop } from "@/lib/media";
 import { Button } from "@/components/ui/button";
 import { externalLinks } from "@/lib/site";
 
 type Solution = {
-  title: string;
+  title: string | React.ReactNode;
   body: string | React.ReactNode;
   cta?: { label: string; href: string; external?: boolean };
-  media: { src: string; alt: string; crop: Crop };
+  media: { src: string; alt: string; crop: Crop; pad?: number };
 };
 
 const solutions: Solution[] = [
   {
-    title: "No.1 아동·청소년 심리 상담 플랫폼",
+    title: (
+      <span>
+        No.1 아동·청소년 심리 상담 플랫폼
+        <br />
+        {`'심바키즈'`}
+      </span>
+    ),
     body: (
       <span>
         느린 아이의 심리 케어부터 사회성 강화까지,
@@ -29,11 +36,18 @@ const solutions: Solution[] = [
     media: {
       src: "/images/solutions/solution_1.png",
       alt: "심바키즈 서비스 화면",
-      crop: { canvasW: 1121, canvasH: 937, x: 264, y: 262, w: 592, h: 409 },
+      ...imageCrops.solution1,
     },
   },
   {
-    title: "아이의 오늘을 이해하고\n내일의 성장을 이끄는 AI",
+    title: (
+      <span>
+        아이의 오늘을 이해하고 <br />
+        내일의 성장을 이끄는 <span className="font-bold">AI 코치</span>
+        <br />
+        {`'아이젤리'`}
+      </span>
+    ),
     body: (
       <span>
         검색해도 우리 아이 이야기는 없으니까, <br />
@@ -43,11 +57,17 @@ const solutions: Solution[] = [
     media: {
       src: "/images/solutions/solution_2.png",
       alt: "AI 부모코칭 서비스 화면",
-      crop: { canvasW: 1121, canvasH: 1080, x: 264, y: 262, w: 592, h: 553 },
+      ...imageCrops.solution2,
     },
   },
   {
-    title: "바라 임팩트 솔루션",
+    title: (
+      <span>
+        교육·돌봄 사각지대를 지원하는
+        <br />
+        {`'바라 임팩트'`}
+      </span>
+    ),
     body: (
       <span>
         교육·돌봄 사각지대 아동·청소년을 위해 <br />
@@ -58,7 +78,7 @@ const solutions: Solution[] = [
     media: {
       src: "/images/solutions/solution_3.png",
       alt: "바라 임팩트 솔루션 구조도",
-      crop: { canvasW: 1074, canvasH: 1024, x: 278, y: 269, w: 536, h: 480 },
+      ...imageCrops.solution3,
     },
   },
 ];
@@ -78,13 +98,14 @@ export function Solutions() {
 
           return (
             <div
-              key={item.title}
+              key={i}
               className="grid items-center gap-8 md:grid-cols-2 md:gap-14"
             >
               <Media
                 src={item.media.src}
                 alt={item.media.alt}
                 crop={item.media.crop}
+                pad={item.media.pad}
                 className={reversed ? "md:order-2" : undefined}
               />
 

@@ -1,6 +1,10 @@
 import { Section } from "@/components/layout/section";
-import { FeatureCards, type Feature } from "@/components/sections/feature-cards";
+import {
+  FeatureCards,
+  type Feature,
+} from "@/components/sections/feature-cards";
 import { Media } from "@/components/sections/media-placeholder";
+import { imageCrops } from "@/lib/media";
 import { StepList, type Step } from "@/components/sections/step-list";
 
 /** 이해 -> 방법 -> 지속. 순서가 곧 코칭이 진행되는 흐름이다. */
@@ -59,9 +63,10 @@ export function AiCoach() {
   return (
     <Section id="ai-coach" className="scroll-mt-20 sm:scroll-mt-24">
       <div className="text-center">
-        <h2 className="t-label">AI 부모코칭</h2>
-        <p className="t-lead mx-auto mt-4 max-w-5xl sm:text-5xl">
-          아이의 오늘을 이해하고, 내일의 성장을 이끄는 AI 코치
+        <h2 className="t-heading">AI 부모코칭</h2>
+        <p className="t-lead mx-auto mt-4 max-w-5xl">
+          아이의 오늘을 이해하고,
+          <br /> 내일의 성장을 이끄는 AI 코치 {`'아이젤리'`}
         </p>
       </div>
 
@@ -69,7 +74,7 @@ export function AiCoach() {
       <Media
         src="/images/solutions/solution_2.png"
         alt="AI 부모코칭 서비스 화면"
-        crop={{ canvasW: 1121, canvasH: 1080, x: 264, y: 262, w: 592, h: 553 }}
+        {...imageCrops.solution2}
         className="mx-auto mt-12 max-w-3xl sm:mt-14"
       />
 

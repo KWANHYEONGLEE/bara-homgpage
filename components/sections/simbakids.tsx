@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Section } from "@/components/layout/section";
-import { FeatureCards, type Feature } from "@/components/sections/feature-cards";
+import {
+  FeatureCards,
+  type Feature,
+} from "@/components/sections/feature-cards";
 import { IntroVideo } from "@/components/sections/intro-video";
 import { Button } from "@/components/ui/button";
 import { externalLinks } from "@/lib/site";
@@ -47,8 +50,8 @@ export function Simbakids() {
     // 색인에서 건너뛸 때 sticky 헤더에 제목이 가리지 않도록 여백을 준다
     <Section id="simbakids" className="scroll-mt-20 sm:scroll-mt-24">
       <div className="text-center">
-        <h2 className="t-label">심바키즈</h2>
-        <p className="t-lead mx-auto mt-4 max-w-4xl sm:text-5xl">
+        <h2 className="t-heading">심바키즈</h2>
+        <p className="t-lead mx-auto mt-4 max-w-4xl">
           대한민국 No.1 아동·청소년 심리 상담 플랫폼
         </p>
       </div>
@@ -56,9 +59,6 @@ export function Simbakids() {
       <div className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-xl border border-border bg-secondary sm:mt-14">
         <IntroVideo />
       </div>
-      <p className="t-caption mx-auto mt-3 max-w-4xl text-center">
-        소리 없이 자동 재생됩니다. 소리는 재생바에서 켜주세요.
-      </p>
 
       <FeatureCards features={features} />
 

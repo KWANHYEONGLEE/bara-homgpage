@@ -68,13 +68,14 @@
   --primary-foreground: #23242b;
 
   /* 흰 배경 위 브랜드 "글씨" 전용 */
-  --brand-ink: #a85f00; /* 4.9:1 */
+  --brand-ink: #a85f00; /* 4.9:1 — 본문 크기(헤더 내비 등)까지 견딘다 */
+
 
   --secondary: #f6f6f7;
   --secondary-foreground: #23242b;
 
   --muted: #f6f6f7;
-  --muted-foreground: #55565f; /* 7.3:1 — 종전 #767683 은 4.48:1 로 AA 미달 */
+  --muted-foreground: #2e2f36; /* 13.3:1 — 참고 사이트 본문 밀도(16.5:1)에 맞춰 낮췄다 */
 
   --accent: #fff4e6;
   --accent-foreground: #a85f00;
@@ -145,11 +146,16 @@
 
 @layer components {
   /**
-   * 타입 스케일.
-   * 60/34/25/19/15 (+라벨 14). clamp 로 모바일~데스크톱을 잇는다.
-   * "글씨가 전반적으로 작다"는 피드백에 따라 52/28/21/17/14 에서
-   * 한 단계씩 올렸다. 개별 컴포넌트를 고치지 않고 여기만 바꾸면
-   * 전체가 같은 비율로 커지도록 스케일을 한곳에 모아 둔 것이다.
+   * 타입 스케일 — 56 / 46 / 28 / 23 / 20 / 18 / 16 (데스크톱).
+   *
+   * 참고 사이트(enuma.com/ko) 실측에 맞춰 잡았다.
+   *   46/700 큰 문장 · 27/700 리드 · 21/400 본문 · 18/500 링크 · 16 푸터
+   * 저쪽은 46 에서 멈추고 본문이 21px 이며, 진하기를 굵기가 아니라
+   * 색(16.5:1 근-검정)으로 낸다. 그 비율을 따르되 우리는 히어로가
+   * 영문 한 줄이라 display 만 56 으로 한 칸 위에 둔다.
+   *
+   * 인접 단계는 1.15배 이상 벌리고, 그보다 붙는 곳(title/body,
+   * body-sm/ui)은 굵기와 색으로 가른다.
    *
    * GmarketSans(--font-display)는 히어로 디스플레이에만 쓴다.
    * 읽는 텍스트는 전부 Pretendard.
@@ -157,64 +163,72 @@
   .t-display {
     font-family: var(--font-display);
     font-weight: 700;
-    font-size: clamp(2rem, 5.1vw, 3.75rem);
-    line-height: 1.22;
-    letter-spacing: -0.03em;
+    font-size: clamp(2.125rem, 1.667rem + 2.04vw, 3.5rem);
+    line-height: 1.14;
+    letter-spacing: -0.032em;
   }
 
-  /* 섹션 라벨 — 제목이 아니라 분류표라서 작고 조용하게 */
-  .t-label {
-    font-size: 0.875rem;
-    font-weight: 600;
-    line-height: 1.4;
-    letter-spacing: 0.09em;
+  /*
+   * 섹션 제목 — 브랜드 오렌지.
+   * 글씨용 오렌지 토큰(--brand-ink)을 그대로 쓴다. 종전 전용값
+   * #c07000 은 3.78:1 이었는데 이쪽은 4.88:1 로 더 진하고,
+   * 오렌지 글씨 토큰이 하나로 모인다.
+   * 제목은 28px 이상 700 이라 WCAG 상 큰 텍스트(기준 3:1)다.
+   */
+  .t-heading {
+    font-size: clamp(1.75rem, 1.375rem + 1.67vw, 2.875rem);
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
     color: var(--brand-ink);
   }
 
-  /* 섹션이 실제로 하는 말 — 시각적 제목 역할은 여기가 맡는다 */
+  /* 제목 아래 한 줄 */
   .t-lead {
-    font-size: clamp(1.4375rem, 2.5vw, 2.125rem);
-    font-weight: 600;
-    line-height: 1.5;
-    letter-spacing: -0.025em;
-  }
-
-  .t-title {
-    font-size: clamp(1.25rem, 1.8vw, 1.5625rem);
-    font-weight: 600;
+    font-size: clamp(1.375rem, 1.25rem + 0.56vw, 1.75rem);
+    font-weight: 700;
     line-height: 1.5;
     letter-spacing: -0.02em;
   }
 
-  /* 본문 — 17px(모바일)~19px(데스크톱) / 행간 1.85 / 대비 7.3:1 */
-  .t-body {
-    font-size: clamp(1.0625rem, 1.4vw, 1.1875rem);
-    font-weight: 400;
-    line-height: 1.85;
-    color: var(--muted-foreground);
+  .t-title {
+    font-size: clamp(1.21875rem, 1.146rem + 0.32vw, 1.4375rem);
+    font-weight: 700;
+    line-height: 1.45;
+    letter-spacing: -0.018em;
   }
 
-  /* 카드·목록처럼 짧고 조밀한 본문. 흐르는 산문이 아니라 행간을 좁힌다 */
-  .t-body-sm {
-    font-size: 1.0625rem;
-    font-weight: 400;
-    line-height: 1.7;
+  /* 본문 — 17px(모바일)~19px(데스크톱) */
+  .t-body {
+    font-size: clamp(1.09375rem, 1.042rem + 0.23vw, 1.25rem);
+    font-weight: 500;
+    line-height: 1.8;
     color: var(--muted-foreground);
   }
 
   /*
-   * 누르고 입력하는 텍스트.
-   * 읽는 텍스트는 잘 잡혀 있는데 상호작용 요소만 14~15px 로 남아 있었다.
-   * 주 독자가 30~50대 학부모라 만지는 요소는 본문과 같은 크기로 둔다.
+   * 카드·목록처럼 짧고 조밀한 본문.
+   * t-ui 와 크기가 같다. 이 둘은 사다리의 다른 칸이 아니라
+   * 색(보조 vs 잉크)과 행간으로 갈리는 역할 구분이다.
    */
+  .t-body-sm {
+    font-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+    font-weight: 500;
+    line-height: 1.65;
+    color: var(--muted-foreground);
+  }
+
+  /* 누르고 입력하는 텍스트 */
   .t-ui {
-    font-size: 1.0625rem;
+    font-size: clamp(1rem, 0.96rem + 0.18vw, 1.125rem);
+    font-weight: 500;
     line-height: 1.5;
   }
 
   .t-caption {
-    font-size: 0.875rem;
-    line-height: 1.7;
+    font-size: clamp(0.9375rem, 0.92rem + 0.1vw, 1rem);
+    font-weight: 500;
+    line-height: 1.6;
     color: var(--muted-foreground);
   }
 
@@ -231,10 +245,6 @@
   }
 
   @media (min-width: 40rem) {
-    .t-caption {
-      font-size: 0.9375rem;
-    }
-
     .t-legal {
       font-size: 1.0625rem;
       line-height: 1.9;
