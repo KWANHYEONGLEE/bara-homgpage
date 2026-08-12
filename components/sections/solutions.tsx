@@ -7,7 +7,7 @@ import { externalLinks } from "@/lib/site";
 
 type Solution = {
   title: string;
-  body: string;
+  body: string | React.ReactNode;
   cta?: { label: string; href: string; external?: boolean };
   media: { src: string; alt: string; crop: Crop };
 };
@@ -15,7 +15,12 @@ type Solution = {
 const solutions: Solution[] = [
   {
     title: "No.1 아동·청소년 심리 상담 플랫폼",
-    body: "느린 아이의 심리 케어부터 사회성 강화까지, 검증된 전문가를 집에서 가장 편안하게 만나보세요.",
+    body: (
+      <span>
+        느린 아이의 심리 케어부터 사회성 강화까지,
+        <br /> 검증된 전문가를 집에서 가장 편안하게 만나보세요.
+      </span>
+    ),
     cta: {
       label: "심바키즈 바로가기",
       href: externalLinks.simbakids,
@@ -29,7 +34,12 @@ const solutions: Solution[] = [
   },
   {
     title: "아이의 오늘을 이해하고\n내일의 성장을 이끄는 AI",
-    body: "검색해도 우리 아이 이야기는 없으니까, 우리 아이에게 꼭 맞는 코칭을 시작하세요.",
+    body: (
+      <span>
+        검색해도 우리 아이 이야기는 없으니까, <br />
+        우리 아이에게 꼭 맞는 코칭을 시작하세요.
+      </span>
+    ),
     media: {
       src: "/images/solutions/solution_2.png",
       alt: "AI 부모코칭 서비스 화면",
@@ -38,7 +48,12 @@ const solutions: Solution[] = [
   },
   {
     title: "바라 임팩트 솔루션",
-    body: "교육·돌봄 사각지대 아동·청소년을 위해 지역사회와 함께 교육 격차를 줄여갑니다.",
+    body: (
+      <span>
+        교육·돌봄 사각지대 아동·청소년을 위해 <br />
+        지역사회와 함께 교육 격차를 줄여갑니다.
+      </span>
+    ),
     cta: { label: "바라 임팩트 문의하기", href: "/contact" },
     media: {
       src: "/images/solutions/solution_3.png",
@@ -74,8 +89,10 @@ export function Solutions() {
               />
 
               <div className={reversed ? "md:order-1" : undefined}>
-                <h3 className="t-title  text-3xl">{item.title}</h3>
-                <p className="t-body measure mt-4 whitespace-pre-line text-xl">
+                <h3 className="t-title sm:text-3xl font-semibold">
+                  {item.title}
+                </h3>
+                <p className="t-body measure mt-4 whitespace-pre-line sm:text-2xl">
                   {item.body}
                 </p>
 

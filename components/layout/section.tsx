@@ -54,7 +54,7 @@ export function SectionHeading({
       {lead && (
         <p
           className={cn(
-            "t-lead mt-4",
+            "t-lead mt-4 font-bold sm:text-5xl",
             align === "center" && "mx-auto max-w-2xl",
           )}
         >
