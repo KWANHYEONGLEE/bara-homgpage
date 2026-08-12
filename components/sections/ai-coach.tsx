@@ -29,7 +29,7 @@ const features: Feature[] = [
       </span>
     ),
     image: "/images/business/business_4.png",
-    alt: "감정 이해하기 워크북과 또래관계·집중력 프로그램 교재",
+    alt: "소파에 앉아 휴대폰으로 아이의 성장 기록을 살펴보는 보호자",
   },
   {
     title: "방법은 더 구체적으로",
@@ -40,7 +40,7 @@ const features: Feature[] = [
       </span>
     ),
     image: "/images/business/business_5.png",
-    alt: "화상으로 1:1 상담을 받는 아이와, 소규모 그룹 수업 장면",
+    alt: "거실에서 마주 앉아 눈을 맞추고 대화하는 엄마와 남자아이",
   },
   {
     title: "고민은 언제든 함께",
@@ -51,7 +51,7 @@ const features: Feature[] = [
       </span>
     ),
     image: "/images/business/business_6.png",
-    alt: "회의 테이블에 모여 논의하는 상담·교육 전문가들",
+    alt: "잠자리에 든 아이 곁에 앉아 다독이는 보호자",
   },
 ];
 

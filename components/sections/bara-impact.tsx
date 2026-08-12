@@ -32,7 +32,7 @@ const features: Feature[] = [
       </span>
     ),
     image: "/images/business/business_7.png",
-    alt: "감정 이해하기 워크북과 또래관계·집중력 프로그램 교재",
+    alt: "야외에 나란히 서서 수료증을 들고 환하게 웃는 아이들",
   },
   {
     title: "성장을 더 오래",
@@ -43,7 +43,7 @@ const features: Feature[] = [
       </span>
     ),
     image: "/images/business/business_8.png",
-    alt: "화상으로 1:1 상담을 받는 아이와, 소규모 그룹 수업 장면",
+    alt: "나무가 우거진 길에서 손을 마주치며 인사하는 두 학생",
   },
   {
     title: "변화를 함께",
@@ -54,7 +54,7 @@ const features: Feature[] = [
       </span>
     ),
     image: "/images/business/business_9.png",
-    alt: "회의 테이블에 모여 논의하는 상담·교육 전문가들",
+    alt: "교실 바닥에 둘러앉아 카드 활동을 함께하는 선생님과 아이들",
   },
 ];
 

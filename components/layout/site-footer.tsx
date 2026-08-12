@@ -4,7 +4,7 @@ export function SiteFooter() {
   return (
     <footer className="px-5 py-16 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-6xl">
-        <address className="t-body-sm border-t border-border pt-8 not-italic leading-[1.9]">
+        <address className="t-legal border-t border-border pt-8 not-italic">
           <p>{companyInfo.legalName}</p>
           <p>
             대표: {companyInfo.ceo} · 사업자번호: {companyInfo.businessNumber}

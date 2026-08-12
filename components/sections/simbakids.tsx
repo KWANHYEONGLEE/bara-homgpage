@@ -16,7 +16,7 @@ const features: Feature[] = [
       </span>
     ),
     image: "/images/business/business_1.png",
-    alt: "감정 이해하기 워크북과 또래관계·집중력 프로그램 교재",
+    alt: "방에서 노트북 화면을 보며 웃는 얼굴로 손을 흔드는 여자아이",
   },
   {
     title: "1:1 & 그룹 수업",
@@ -27,7 +27,7 @@ const features: Feature[] = [
       </span>
     ),
     image: "/images/business/business_2.png",
-    alt: "화상으로 1:1 상담을 받는 아이와, 소규모 그룹 수업 장면",
+    alt: "화상 수업 화면에 네 명의 아이가 각자 자기 방에서 참여하고 있는 모습",
   },
   {
     title: "검증된 전문가",
@@ -38,7 +38,7 @@ const features: Feature[] = [
       </span>
     ),
     image: "/images/business/business_3.png",
-    alt: "회의 테이블에 모여 논의하는 상담·교육 전문가들",
+    alt: "사무실 테이블에 둘러앉아 노트북과 자료를 놓고 이야기하는 상담·교육 전문가들",
   },
 ];
 

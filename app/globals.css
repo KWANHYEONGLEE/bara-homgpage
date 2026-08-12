@@ -213,9 +213,32 @@
   }
 
   .t-caption {
-    font-size: 0.9375rem;
+    font-size: 0.875rem;
     line-height: 1.7;
     color: var(--muted-foreground);
+  }
+
+  /*
+   * 푸터 사업자 정보.
+   * 읽는 글이 아니라 필요할 때 확인하는 정보라 본문보다 작다.
+   * 좁은 화면에서는 한 줄이 두세 줄로 접혀 덩어리가 커 보이므로
+   * 한 단계 더 줄인다. 데스크톱은 종전 크기 그대로.
+   */
+  .t-legal {
+    font-size: 0.9375rem;
+    line-height: 1.8;
+    color: var(--muted-foreground);
+  }
+
+  @media (min-width: 40rem) {
+    .t-caption {
+      font-size: 0.9375rem;
+    }
+
+    .t-legal {
+      font-size: 1.0625rem;
+      line-height: 1.9;
+    }
   }
 
   /*
