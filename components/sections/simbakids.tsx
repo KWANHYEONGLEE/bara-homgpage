@@ -1,12 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Section } from "@/components/layout/section";
+import { FeatureCards, type Feature } from "@/components/sections/feature-cards";
 import { IntroVideo } from "@/components/sections/intro-video";
 import { Button } from "@/components/ui/button";
 import { externalLinks } from "@/lib/site";
 
-const features = [
+const features: Feature[] = [
   {
     title: "No.1 온라인 아동상담",
     body: (
@@ -60,31 +60,7 @@ export function Simbakids() {
         소리 없이 자동 재생됩니다. 소리는 재생바에서 켜주세요.
       </p>
 
-      <ul className="mt-12 grid gap-5 sm:mt-14 md:grid-cols-3 text-center">
-        {features.map((feature) => (
-          <li
-            key={feature.title}
-            className="flex flex-col overflow-hidden rounded-xl border border-border "
-          >
-            {/* 원본 사진이 272x350 이라 4:5 로 담는다 */}
-            <div className="relative aspect-4/5 shrink-0 border-b border-border bg-secondary">
-              <Image
-                src={feature.image}
-                alt={feature.alt}
-                fill
-                sizes="(min-width: 768px) 33vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="p-5">
-              <h3 className="t-title sm:text-3xl font-bold">{feature.title}</h3>
-              <p className="t-body mt-2.5 sm:text-2xl font-semibold">
-                {feature.body}
-              </p>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <FeatureCards features={features} />
 
       <div className="mt-12 text-center sm:mt-14">
         <Button asChild size="lg" className="rounded-full">

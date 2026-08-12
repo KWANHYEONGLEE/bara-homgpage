@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Section } from "@/components/layout/section";
+import { FeatureCards, type Feature } from "@/components/sections/feature-cards";
 import { Media } from "@/components/sections/media-placeholder";
 import { StepList, type Step } from "@/components/sections/step-list";
 import { Button } from "@/components/ui/button";
@@ -22,7 +22,7 @@ const steps: Step[] = [
   },
 ];
 
-const features = [
+const features: Feature[] = [
   {
     title: "기회를 더 넓게",
     body: (
@@ -68,7 +68,7 @@ export function BaraImpact() {
       <div className="text-center">
         <h2 className="t-label">바라 임팩트</h2>
         <p className="t-lead mx-auto mt-4 max-w-2xl">
-          교육·돌봄 사각지대를 지원하는 '바라 임팩트'
+          교육·돌봄 사각지대를 지원하는 ‘바라 임팩트’
         </p>
       </div>
 
@@ -79,31 +79,7 @@ export function BaraImpact() {
         crop={{ canvasW: 1074, canvasH: 1024, x: 278, y: 269, w: 536, h: 480 }}
         className="mx-auto mt-12 max-w-2xl sm:mt-14"
       />
-      <ul className="mt-12 grid gap-5 sm:mt-14 md:grid-cols-3 text-center">
-        {features.map((feature) => (
-          <li
-            key={feature.title}
-            className="flex flex-col overflow-hidden rounded-xl border border-border "
-          >
-            {/* 원본 사진이 272x350 이라 4:5 로 담는다 */}
-            <div className="relative aspect-4/5 shrink-0 border-b border-border bg-secondary">
-              <Image
-                src={feature.image}
-                alt={feature.alt}
-                fill
-                sizes="(min-width: 768px) 33vw, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="p-5">
-              <h3 className="t-title sm:text-3xl font-bold">{feature.title}</h3>
-              <p className="t-body mt-2.5 sm:text-2xl font-semibold">
-                {feature.body}
-              </p>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <FeatureCards features={features} />
 
       {/* <div className="mx-auto mt-14 max-w-2xl sm:mt-16">
         <StepList steps={steps} />
