@@ -24,6 +24,6 @@ export const companyInfo = {
   businessNumber: "559-86-03522",
   mailOrderNumber: "제 2026-성남수정-0510호",
   address:
-    "경기도 성남시 수정구 대왕판교로 815, 판교창조경제밸리 713호(시흥동)",
+    "경기도 성남시 수정구 대왕판교로 815, 제2판교 창조경제밸리 기업지원허브 713호",
   email: "baraspace@baraspace.com",
 } as const;

@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { Section } from "@/components/layout/section";
-import { FeatureCards, type Feature } from "@/components/sections/feature-cards";
+import {
+  FeatureCards,
+  type Feature,
+} from "@/components/sections/feature-cards";
 import { Media } from "@/components/sections/media-placeholder";
 import { imageCrops } from "@/lib/media";
 import { StepList, type Step } from "@/components/sections/step-list";
@@ -64,7 +67,7 @@ export function BaraImpact() {
     <Section
       id="bara-impact"
       bordered={false}
-      className="scroll-mt-20 sm:scroll-mt-24"
+      className="scroll-mt-20 sm:scroll-mt-24 mb-28"
     >
       <div className="text-center">
         <h2 className="t-heading">바라 임팩트</h2>

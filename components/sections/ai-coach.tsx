@@ -63,10 +63,10 @@ export function AiCoach() {
   return (
     <Section id="ai-coach" className="scroll-mt-20 sm:scroll-mt-24">
       <div className="text-center">
-        <h2 className="t-heading">AI 부모코칭</h2>
+        <h2 className="t-heading">아이젤리</h2>
         <p className="t-lead mx-auto mt-4 max-w-5xl">
           아이의 오늘을 이해하고,
-          <br /> 내일의 성장을 이끄는 AI 코치 {`'아이젤리'`}
+          <br /> 내일의 성장을 이끄는 AI 양육 코치
         </p>
       </div>
 

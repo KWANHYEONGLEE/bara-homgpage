@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Section } from "@/components/layout/section";
+import { SiteFooter } from "@/components/layout/site-footer";
 import { ContactForm } from "@/components/sections/contact-form";
 import { companyInfo } from "@/lib/site";
 
@@ -43,11 +44,6 @@ export default function ContactPage() {
                   </a>
                 </dd>
               </div>
-
-              <div>
-                <dt className="t-caption">주소</dt>
-                <dd className="t-body-sm mt-1">{companyInfo.address}</dd>
-              </div>
             </dl>
           </div>
 
@@ -59,6 +55,9 @@ export default function ContactPage() {
           </div>
         </div>
       </Section>
+
+      {/* 푸터는 전역이 아니라 홈과 이 페이지에만 붙인다 */}
+      <SiteFooter />
     </>
   );
 }
