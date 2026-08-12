@@ -11,42 +11,55 @@ export type Feature = {
 /**
  * 사업 특징 카드 3장. 세 섹션이 같은 모양을 쓴다.
  *
- * 모바일에서 세로로 쌓으면 사진 한 장이 333x416 으로 카드의 74% 를
- * 차지해 화면을 다 먹는다. 그렇다고 비율만 낮추면 원본이 세로 사진이라
- * (272x350) 크게 잘려나간다 — 특히 두 장면이 위아래로 붙은 컷은
- * 가운데가 잘려 어색해진다.
+ * 사진이 가로형(비율 0.97~1.50)으로 바뀌었는데 카드는 세로 4:5 로
+ * 담고 있어, 가로 사진을 세로로 잘라내며 카드 키만 키우고 있었다.
+ * 3:2 가로로 바꿔 원본 비율에 가깝게 담는다.
  *
- * 그래서 좁은 화면에서는 사진을 왼쪽 썸네일로 눕히고,
- * 3열이 되는 md 부터 원래의 세로 카드로 돌아간다. 잘라내지 않는다.
+ * 모바일에서는 세 장을 세로로 쌓는 대신 가로 스크롤로 둔다.
+ * 카드 폭을 화면의 58% 로 잡아 다음 카드가 걸쳐 보이게 해서,
+ * 옆으로 넘길 수 있다는 것이 스크롤바 없이도 드러나게 했다.
+ * 3열이 들어가는 md 부터는 평범한 그리드로 돌아간다.
  */
-export function FeatureCards({ features }: { features: Feature[] }) {
+export function FeatureCards({
+  features,
+  label = "주요 특징",
+}: {
+  features: Feature[];
+  /** 가로 스크롤 영역을 키보드로 만났을 때 읽히는 이름 */
+  label?: string;
+}) {
   return (
-    <ul className="mt-12 grid gap-5 sm:mt-14 md:grid-cols-3 md:text-center">
-      {features.map((feature) => (
-        <li
-          key={feature.title}
-          className="flex overflow-hidden rounded-xl border border-border md:flex-col"
-        >
-          {/* 원본 사진이 272x350 이라 4:5 로 담는다 */}
-          <div className="relative aspect-4/5 w-32 shrink-0 self-start border-r border-border bg-secondary sm:w-44 md:w-full md:self-auto md:border-r-0 md:border-b">
-            <Image
-              src={feature.image}
-              alt={feature.alt}
-              fill
-              sizes="(min-width: 768px) 33vw, (min-width: 640px) 11rem, 8rem"
-              className="object-cover"
-            />
-          </div>
+    <div
+      // 카드가 화면 끝까지 흐르도록 섹션 좌우 여백을 잠시 벗어난다
+      className="-mx-5 mt-12 overflow-x-auto px-5 pb-2 [scrollbar-width:none] sm:mt-14 md:mx-0 md:overflow-x-visible md:px-0 md:pb-0 [&::-webkit-scrollbar]:hidden"
+      // 스크롤 영역은 키보드로도 닿아야 한다
+      tabIndex={0}
+      role="region"
+      aria-label={label}
+    >
+      <ul className="flex snap-x snap-mandatory scroll-px-5 gap-4 md:grid md:snap-none md:grid-cols-3 md:gap-5 md:scroll-px-0">
+        {features.map((feature) => (
+          <li
+            key={feature.title}
+            className="w-[58vw] shrink-0 snap-start overflow-hidden rounded-xl border border-border sm:w-[40vw] md:w-auto"
+          >
+            <div className="relative aspect-3/2 border-b border-border bg-secondary">
+              <Image
+                src={feature.image}
+                alt={feature.alt}
+                fill
+                sizes="(min-width: 768px) 33vw, (min-width: 640px) 40vw, 58vw"
+                className="object-cover"
+              />
+            </div>
 
-          {/* flex-1 이 없으면 글이 짧을 때 카드 오른쪽이 비어 보인다 */}
-          <div className="min-w-0 flex-1 self-center p-4 sm:p-5 md:self-auto">
-            <h3 className="t-title font-bold sm:text-3xl">{feature.title}</h3>
-            <p className="t-body mt-2.5 font-semibold sm:text-2xl">
-              {feature.body}
-            </p>
-          </div>
-        </li>
-      ))}
-    </ul>
+            <div className="p-4 sm:p-5">
+              <h3 className="t-title font-bold">{feature.title}</h3>
+              <p className="t-body-sm mt-2">{feature.body}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

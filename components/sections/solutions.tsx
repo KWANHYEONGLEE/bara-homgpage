@@ -9,7 +9,7 @@ type Solution = {
   title: string | React.ReactNode;
   body: string | React.ReactNode;
   cta?: { label: string; href: string; external?: boolean };
-  media: { src: string; alt: string; crop: Crop };
+  media: { src: string; alt: string; crop: Crop; pad?: number };
 };
 
 const solutions: Solution[] = [
@@ -77,7 +77,10 @@ const solutions: Solution[] = [
     media: {
       src: "/images/solutions/solution_3.png",
       alt: "바라 임팩트 솔루션 구조도",
-      crop: { canvasW: 1074, canvasH: 1024, x: 278, y: 269, w: 536, h: 480 },
+      // 교체된 원본(454x466)은 이미 빠듯하게 잘려 있어 좌우 여백이 14px뿐이다.
+      // 기본 4% 여백은 캔버스를 넘어가므로 3% 로 낮춘다.
+      crop: { canvasW: 454, canvasH: 466, x: 14, y: 40, w: 416, h: 384 },
+      pad: 0.03,
     },
   },
 ];
@@ -104,6 +107,7 @@ export function Solutions() {
                 src={item.media.src}
                 alt={item.media.alt}
                 crop={item.media.crop}
+                pad={item.media.pad}
                 className={reversed ? "md:order-2" : undefined}
               />
 

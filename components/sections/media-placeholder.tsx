@@ -48,11 +48,17 @@ type MediaProps = {
   alt: string;
   /** 원본에 여백이 포함된 경우, 잘라낼 콘텐츠 영역 */
   crop: Crop;
+  /**
+   * 콘텐츠 주변에 남길 여백 비율.
+   * 원본이 이미 빠듯하게 잘려 있으면 기본값(4%)이 캔버스를 넘어가
+   * 가장자리에 빈 띠가 생기므로 낮춰서 쓴다.
+   */
+  pad?: number;
   className?: string;
 };
 
-export function Media({ src, alt, crop, className }: MediaProps) {
-  const { wrapper, image } = cropToContent(crop);
+export function Media({ src, alt, crop, pad, className }: MediaProps) {
+  const { wrapper, image } = cropToContent(crop, pad);
 
   return (
     <div

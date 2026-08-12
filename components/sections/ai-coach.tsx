@@ -1,5 +1,8 @@
 import { Section } from "@/components/layout/section";
-import { FeatureCards, type Feature } from "@/components/sections/feature-cards";
+import {
+  FeatureCards,
+  type Feature,
+} from "@/components/sections/feature-cards";
 import { Media } from "@/components/sections/media-placeholder";
 import { StepList, type Step } from "@/components/sections/step-list";
 
@@ -61,7 +64,8 @@ export function AiCoach() {
       <div className="text-center">
         <h2 className="t-label">AI 부모코칭</h2>
         <p className="t-lead mx-auto mt-4 max-w-5xl sm:text-5xl">
-          아이의 오늘을 이해하고, 내일의 성장을 이끄는 AI 코치
+          아이의 오늘을 이해하고,
+          <br /> 내일의 성장을 이끄는 AI 코치 {`'아이젤리'`}
         </p>
       </div>
 
